@@ -1,0 +1,29 @@
+alternate: Yutu's Cabin
+
+
+
+statics: / #//cdn.jsdelivr.net/gh/amehime/shoka@latest/
+
+	
+css: css
+js: js
+images: images
+
+
+
+	
+darkmode: # true
+
+
+# 页尾全站统计
+footer:
+  since: 2010
+  count: true
+
+# 文章界面统计
+post:
+  count: true
+
+
+
+

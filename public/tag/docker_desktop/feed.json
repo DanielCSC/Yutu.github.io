@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "The course of true love never did run smooth. • All posts by \"docker_desktop\" tag",
+    "description": "不知道写啥",
+    "home_page_url": "https://tuyustar.cn",
+    "items": [
+        {
+            "id": "https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/Docker-Desktop%E4%BD%BF%E7%94%A8Mysql%E3%80%81Redis/",
+            "url": "https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/Docker-Desktop%E4%BD%BF%E7%94%A8Mysql%E3%80%81Redis/",
+            "title": "Docker_Desktop使用Mysql、Redis",
+            "date_published": "2020-12-05T01:29:08.000Z",
+            "content_html": "<h1 id=\"docker-desktop使用mysql\"><a class=\"markdownIt-Anchor\" href=\"#docker-desktop使用mysql\">#</a> Docker Desktop 使用 Mysql</h1>\n<ol>\n<li>拉取镜像</li>\n</ol>\n<figure class=\"highlight dockerfile\"><figcaption data-lang=\"Docker\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>docker pull mysql</pre></td></tr></table></figure><ol start=\"2\">\n<li>启动镜像，第一次启动最少需要指定 <code>MYSQL_ROOT_PASSWORD</code></li>\n</ol>\n<figure class=\"highlight dockerfile\"><figcaption data-lang=\"Docker\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=000 -d mysql</pre></td></tr></table></figure><p><img data-src=\"1.png\" alt=\"\"></p>\n<ol start=\"3\">\n<li>运行 Mysql</li>\n</ol>\n<figure class=\"highlight dockerfile\"><figcaption data-lang=\"Docker\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>docker exec -it mysql mysql -uroot -p000</pre></td></tr></table></figure><p><img data-src=\"2.png\" alt=\"\"></p>\n<h1 id=\"docker-desktop使用redis\"><a class=\"markdownIt-Anchor\" href=\"#docker-desktop使用redis\">#</a> Docker Desktop 使用 Redis</h1>\n<ol>\n<li>拉取镜像</li>\n</ol>\n<figure class=\"highlight dockerfile\"><figcaption data-lang=\"Docker\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>docker pull redis</pre></td></tr></table></figure><p>2. 启动镜像</p>\n<figure class=\"highlight dockerfile\"><figcaption data-lang=\"Docker\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>docker run -it -p 6380:6379 redis</pre></td></tr></table></figure><p><img data-src=\"3.png\" alt=\"\"></p>\n<ol start=\"3\">\n<li>运行 Redis</li>\n</ol>\n<figure class=\"highlight dockerfile\"><figcaption data-lang=\"Docker\"></figcaption><table><tr><td data-num=\"1\"></td><td><pre>redis-cli -p 6380\t\t\t# 指定端口，可开启多个redis服务，互不影响，本地服务均可开启</pre></td></tr></table></figure><p><img data-src=\"4.png\" alt=\"\"></p>\n",
+            "tags": [
+                "Docker_Desktop"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,529 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Wechat" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/">
+
+
+
+  <title>
+Wechat-- 扫码支付 - Django 框架 |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Wechat-- 扫码支付
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-12-27 16:35:04">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-12-27T16:35:04+08:00">2020-12-27</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>6.1k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>6 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Django%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="In Django 框架"><span itemprop="name">Django 框架</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="概述"><a class="markdownIt-Anchor" href="#概述">#</a> 概述</h1>
+<blockquote>
+<p>在生活中真正具有广泛性、高效性、使用方便性的支付方式还得是扫码支付，扫码的优点在于推广成本低，上至钓鱼台国宾馆，下至发廊地摊都能用，打印出来就完事了，而相比其他支付方式，现金的找零及假钞问题，信用卡的办理门槛、pos 机的沉没成本，所以基于二维码的扫码支付的确是非常符合国情的。</p>
+</blockquote>
+<h1 id="python3-django22-vue-实现微信扫码支付"><a class="markdownIt-Anchor" href="#python3-django22-vue-实现微信扫码支付">#</a> Python3 + Django2.2 + Vue 实现微信扫码支付</h1>
+<h2 id="wechat"><a class="markdownIt-Anchor" href="#wechat">#</a> Wechat</h2>
+<ol>
+<li>首先注册微信公众平台</li>
+</ol>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29t">https://mp.weixin.qq.com</span></p>
+</blockquote>
+<ul>
+<li>获得开发者 id 和秘钥 (appid &amp; appsecret)</li>
+</ul>
+<p><img data-src="1.png" alt=""></p>
+<ul>
+<li>同时确保获取微信支付接口的权限</li>
+</ul>
+<p><img data-src="2.png" alt=""></p>
+<ol start="2">
+<li>随后注册微信支付商户平台</li>
+</ol>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9wYXkud2VpeGluLnFxLmNvbS8=">https://pay.weixin.qq.com/</span></p>
+</blockquote>
+<ul>
+<li>获取微信支付的商户号 (在账户信息页面)</li>
+</ul>
+<p><img data-src="3.png" alt=""></p>
+<ul>
+<li>获取微信支付接口的秘钥 (账户中心 -&gt;api 安全)</li>
+</ul>
+<p><img data-src="4.png" alt=""></p>
+<ul>
+<li>产品中心 -&gt; 开发配置页面，配置支付域名</li>
+</ul>
+<p><img data-src="5.png" alt=""></p>
+<div class="note info">
+<p>扫码支付域名既支持 https 也支持 http，非常方便，同时注意域名必须是一个备案域名。</p>
+</div>
+<h2 id="django"><a class="markdownIt-Anchor" href="#django">#</a> Django</h2>
+<ol>
+<li>首先导入依赖的库和一些工具方法</li>
+</ol>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> requests</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse<span class="token punctuation">,</span> HttpResponseRedirect</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">import</span> random</pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">import</span> time</pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">import</span> hashlib</pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">import</span> qrcode</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup</pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">def</span> <span class="token function">trans_xml_to_dict</span><span class="token punctuation">(</span>data_xml<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>data_xml<span class="token punctuation">,</span> features<span class="token operator">=</span><span class="token string">'xml'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    xml <span class="token operator">=</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'xml'</span><span class="token punctuation">)</span>  <span class="token comment"># 解析 XML</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">if</span> <span class="token keyword">not</span> xml<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    data_dict <span class="token operator">=</span> <span class="token builtin">dict</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span>name<span class="token punctuation">,</span> item<span class="token punctuation">.</span>text<span class="token punctuation">)</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> xml<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token keyword">return</span> data_dict</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">def</span> <span class="token function">trans_dict_to_xml</span><span class="token punctuation">(</span>data_dict<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 定义字典转 XML 的函数</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    data_xml <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">for</span> k <span class="token keyword">in</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>data_dict<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 遍历字典排序后的 key</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        v <span class="token operator">=</span> data_dict<span class="token punctuation">.</span>get<span class="token punctuation">(</span>k<span class="token punctuation">)</span>  <span class="token comment"># 取出字典中 key 对应的 value</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token string">'detail'</span> <span class="token keyword">and</span> <span class="token keyword">not</span> v<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">'&lt;![CDATA['</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 添加 XML 标记</span></pre></td></tr><tr><td data-num="24"></td><td><pre>            v <span class="token operator">=</span> <span class="token string">'&lt;![CDATA[&#123;&#125;]]>'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        data_xml<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">'&lt;&#123;key&#125;>&#123;value&#125;&lt;/&#123;key&#125;>'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>key<span class="token operator">=</span>k<span class="token punctuation">,</span> value<span class="token operator">=</span>v<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">return</span> <span class="token string">'&lt;xml>&#123;&#125;&lt;/xml>'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>data_xml<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 返回 XML</span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre><span class="token keyword">def</span> <span class="token function">get_sign</span><span class="token punctuation">(</span>data_dict<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 签名函数，参数为签名的数据和密钥</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    params_list <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>data_dict<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> e<span class="token punctuation">:</span> e<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> reverse<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>  <span class="token comment"># 参数字典倒排序为列表</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    params_str <span class="token operator">=</span> <span class="token string">"&amp;"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">u"&#123;&#125;=&#123;&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> params_list<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">'&amp;key='</span> <span class="token operator">+</span> key</pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token comment"># 组织参数字符串并在末尾添加商户交易密钥</span></pre></td></tr><tr><td data-num="32"></td><td><pre>    md5 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 使用 MD5 加密模式</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    md5<span class="token punctuation">.</span>update<span class="token punctuation">(</span>params_str<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 将参数字符串传入</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    sign <span class="token operator">=</span> md5<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 完成加密并转为大写</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token keyword">return</span> sign</pre></td></tr></table></figure><ol start="2">
+<li>编写支付逻辑，参考微信官方文档</li>
+</ol>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9wYXkud2VpeGluLnFxLmNvbS93aWtpL2RvYy9hcGkvbmF0aXZlLnBocD9jaGFwdGVyPTZfNSZhbXA7aW5kZXg9Mw==">https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=6_5&amp;index=3</span></p>
+</blockquote>
+<details class="primary"><summary>业务流程说明</summary><div>
+<p>（1）商户后台系统根据用户选购的商品生成订单。</p>
+<p>（2）用户确认支付后调用微信支付【统一下单 API】生成预支付交易；</p>
+<p>（3）微信支付系统收到请求后生成预支付交易单，并返回交易会话的二维码链接 code_url。</p>
+<p>（4）商户后台系统根据返回的 code_url 生成二维码。</p>
+<p>（5）用户打开微信 “扫一扫” 扫描二维码，微信客户端将扫码内容发送到微信支付系统。</p>
+<p>（6）微信支付系统收到客户端请求，验证链接有效性后发起用户支付，要求用户授权。</p>
+<p>（7）用户在微信客户端输入密码，确认支付后，微信客户端提交授权。</p>
+<p>（8）微信支付系统根据用户授权完成支付交易。</p>
+<p>（9）微信支付系统完成支付交易后给微信客户端返回交易结果，并将交易结果通过短信、微信消息提示用户。微信客户端展示支付交易结果页面。</p>
+<p>（10）微信支付系统通过发送异步消息通知商户后台系统支付结果。商户后台系统需回复接收情况，通知微信后台系统不再发送该单的支付通知。</p>
+<p>（11）未收到支付通知的情况，商户后台系统调用【查询订单 API】。</p>
+<p>（12）商户确认订单已支付后给用户发货。</p>
+</div></details>
+<ul>
+<li>我们需要调用微信的统一下单接口文档</li>
+</ul>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9wYXkud2VpeGluLnFxLmNvbS93aWtpL2RvYy9hcGkvbmF0aXZlLnBocD9jaGFwdGVyPTlfMQ==">https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1</span></p>
+</blockquote>
+<ul>
+<li>编写逻辑</li>
+</ul>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">wx_pay</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    url <span class="token operator">=</span> <span class="token string">'https://api.mch.weixin.qq.com/pay/unifiedorder'</span>  <span class="token comment"># 微信扫码支付接口</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    key <span class="token operator">=</span> <span class="token string">'945bec********a8fbf7d7'</span>  <span class="token comment">#商户 api 秘钥</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    total_fee <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment">#支付金额，单位分</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    body <span class="token operator">=</span> <span class="token string">'123123'</span>  <span class="token comment"># 商品描述</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    out_trade_no <span class="token operator">=</span> <span class="token string">'order_%s'</span> <span class="token operator">%</span> random<span class="token punctuation">.</span>randrange<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">999999</span><span class="token punctuation">)</span>  <span class="token comment"># 订单编号</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    params <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token string">'appid'</span><span class="token punctuation">:</span> <span class="token string">'wx09*****f'</span><span class="token punctuation">,</span>  <span class="token comment"># APPID</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token string">'mch_id'</span><span class="token punctuation">:</span> <span class="token string">'16****08'</span><span class="token punctuation">,</span>  <span class="token comment"># 商户号</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token string">'notify_url'</span><span class="token punctuation">:</span> <span class="token string">'http://wxpay.v3u.cn/wx_back/'</span><span class="token punctuation">,</span>  <span class="token comment"># 支付域名回调地址</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token string">'product_id'</span><span class="token punctuation">:</span> <span class="token string">'goods_%s'</span> <span class="token operator">%</span> random<span class="token punctuation">.</span>randrange<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">,</span> <span class="token number">999999</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 商品编号</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token string">'trade_type'</span><span class="token punctuation">:</span> <span class="token string">'NATIVE'</span><span class="token punctuation">,</span>  <span class="token comment"># 支付类型（扫码支付）</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token string">'spbill_create_ip'</span><span class="token punctuation">:</span> <span class="token string">'114.254.176.137'</span><span class="token punctuation">,</span>  <span class="token comment"># 发送请求服务器的 IP 地址</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token string">'total_fee'</span><span class="token punctuation">:</span> total_fee<span class="token punctuation">,</span>  <span class="token comment"># 订单总金额</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token string">'out_trade_no'</span><span class="token punctuation">:</span> out_trade_no<span class="token punctuation">,</span>  <span class="token comment"># 订单编号</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token string">'body'</span><span class="token punctuation">:</span> body<span class="token punctuation">,</span>  <span class="token comment"># 商品描述</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token string">'nonce_str'</span><span class="token punctuation">:</span> <span class="token string">'ibuaiVcKdpRxkhJA'</span>  <span class="token comment"># 字符串</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    sign <span class="token operator">=</span> get_sign<span class="token punctuation">(</span>params<span class="token punctuation">,</span> key<span class="token punctuation">)</span>  <span class="token comment"># 获取签名</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    params<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'sign'</span><span class="token punctuation">,</span> sign<span class="token punctuation">)</span>  <span class="token comment"># 添加签名到参数字典</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    xml <span class="token operator">=</span> trans_dict_to_xml<span class="token punctuation">(</span>params<span class="token punctuation">)</span>  <span class="token comment"># 转换字典为 XML</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'post'</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> data<span class="token operator">=</span>xml<span class="token punctuation">)</span>  <span class="token comment"># 以 POST 方式向微信公众平台服务器发起请求</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    data_dict <span class="token operator">=</span> trans_xml_to_dict<span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>  <span class="token comment"># 将请求返回的数据转为字典</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>data_dict<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    qrcode_name <span class="token operator">=</span> out_trade_no <span class="token operator">+</span> <span class="token string">'.png'</span>  <span class="token comment"># 支付二维码图片保存路径</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token keyword">if</span> data_dict<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'return_code'</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'SUCCESS'</span><span class="token punctuation">:</span>  <span class="token comment"># 如果请求成功</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        img <span class="token operator">=</span> qrcode<span class="token punctuation">.</span>make<span class="token punctuation">(</span>data_dict<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'code_url'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 创建支付二维码片</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        img<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token string">'./'</span> <span class="token operator">+</span> qrcode_name<span class="token punctuation">)</span>  <span class="token comment"># 保存支付二维码</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span>qrcode_name<span class="token punctuation">)</span></pre></td></tr></table></figure><ol start="3">
+<li>访问 http://localhost:8000/wx_pay/</li>
+</ol>
+<p><img data-src="6.png" alt=""></p>
+<h2 id="vue"><a class="markdownIt-Anchor" href="#vue">#</a> Vue</h2>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>center</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>扫码支付<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>center</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre> </pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-form-item</span> <span class="token attr-name">v-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>formItemLayout<span class="token punctuation">"</span></span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>金额<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="9"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>money<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-form-item</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="11"></td><td><pre>    </pre></td></tr><tr><td data-num="12"></td><td><pre>   </pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-form-item</span> <span class="token attr-name">v-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>tailFormItemLayout<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span> <span class="token attr-name">html-type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="15"></td><td><pre>        生成二维码</pre></td></tr><tr><td data-num="16"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-button</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-form-item</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-form-item</span> <span class="token attr-name">v-bind</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>formItemLayout<span class="token punctuation">"</span></span> <span class="token attr-name">label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>二维码<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="21"></td><td><pre>    </pre></td></tr><tr><td data-num="22"></td><td><pre>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">:src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>src<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-form-item</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre></pre></td></tr><tr><td data-num="27"></td><td><pre>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="34"></td><td><pre></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="38"></td><td><pre>      money<span class="token operator">:</span><span class="token string">"1"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="39"></td><td><pre>      src<span class="token operator">:</span><span class="token string">""</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="40"></td><td><pre>      formItemLayout<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        labelCol<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>          xs<span class="token operator">:</span> <span class="token punctuation">&#123;</span> span<span class="token operator">:</span> <span class="token number">24</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="43"></td><td><pre>          sm<span class="token operator">:</span> <span class="token punctuation">&#123;</span> span<span class="token operator">:</span> <span class="token number">8</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="44"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="45"></td><td><pre>        wrapperCol<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>          xs<span class="token operator">:</span> <span class="token punctuation">&#123;</span> span<span class="token operator">:</span> <span class="token number">24</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="47"></td><td><pre>          sm<span class="token operator">:</span> <span class="token punctuation">&#123;</span> span<span class="token operator">:</span> <span class="token number">16</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="48"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="49"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="50"></td><td><pre>      tailFormItemLayout<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="51"></td><td><pre>        wrapperCol<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>          xs<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>            span<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="54"></td><td><pre>            offset<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="55"></td><td><pre>          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="56"></td><td><pre>          sm<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>            span<span class="token operator">:</span> <span class="token number">16</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="58"></td><td><pre>            offset<span class="token operator">:</span> <span class="token number">8</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="59"></td><td><pre>          <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="60"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="61"></td><td><pre>      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="62"></td><td><pre>      dataSource<span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="63"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="64"></td><td><pre>          key<span class="token operator">:</span> <span class="token string">'0'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="65"></td><td><pre>          name<span class="token operator">:</span> <span class="token string">'Edward King 0'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="66"></td><td><pre>          age<span class="token operator">:</span> <span class="token string">'32'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="67"></td><td><pre>          address<span class="token operator">:</span> <span class="token string">'London, Park Lane no. 0'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="68"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="69"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="70"></td><td><pre>          key<span class="token operator">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="71"></td><td><pre>          name<span class="token operator">:</span> <span class="token string">'Edward King 1'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="72"></td><td><pre>          age<span class="token operator">:</span> <span class="token string">'32'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="73"></td><td><pre>          address<span class="token operator">:</span> <span class="token string">'London, Park Lane no. 1'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="74"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="75"></td><td><pre>      <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="76"></td><td><pre>      columns<span class="token operator">:</span> <span class="token punctuation">[</span></pre></td></tr><tr><td data-num="77"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="78"></td><td><pre>          title<span class="token operator">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="79"></td><td><pre>          dataIndex<span class="token operator">:</span> <span class="token string">'name'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="80"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="81"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="82"></td><td><pre>          title<span class="token operator">:</span> <span class="token string">'age'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="83"></td><td><pre>          dataIndex<span class="token operator">:</span> <span class="token string">'age'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="84"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="85"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="86"></td><td><pre>          title<span class="token operator">:</span> <span class="token string">'address'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="87"></td><td><pre>          dataIndex<span class="token operator">:</span> <span class="token string">'address'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="88"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="89"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="90"></td><td><pre>          title<span class="token operator">:</span> <span class="token string">'operation'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="91"></td><td><pre>          dataIndex<span class="token operator">:</span> <span class="token string">'operation'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="92"></td><td><pre>          scopedSlots<span class="token operator">:</span> <span class="token punctuation">&#123;</span> customRender<span class="token operator">:</span> <span class="token string">'operation'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="93"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="94"></td><td><pre>      <span class="token punctuation">]</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="95"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="96"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="97"></td><td><pre>  methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="98"></td><td><pre></pre></td></tr><tr><td data-num="99"></td><td><pre>    <span class="token function-variable function">submit</span><span class="token operator">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="100"></td><td><pre></pre></td></tr><tr><td data-num="101"></td><td><pre>       <span class="token keyword">this</span><span class="token punctuation">.</span>axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'http://localhost:8000/wx_pay/'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result</span><span class="token punctuation">)</span> <span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="102"></td><td><pre>    </pre></td></tr><tr><td data-num="103"></td><td><pre>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="104"></td><td><pre></pre></td></tr><tr><td data-num="105"></td><td><pre>            <span class="token keyword">this</span><span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">"http://localhost:8000/static/upload/"</span><span class="token operator">+</span>result<span class="token punctuation">.</span>data<span class="token punctuation">.</span>img</pre></td></tr><tr><td data-num="106"></td><td><pre>  </pre></td></tr><tr><td data-num="107"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="108"></td><td><pre></pre></td></tr><tr><td data-num="109"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="110"></td><td><pre>    <span class="token function">onDelete</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="111"></td><td><pre>      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>dataSource<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="112"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="113"></td><td><pre></pre></td></tr><tr><td data-num="114"></td><td><pre>  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="115"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="116"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ul>
+<li>当用户点击按钮之后，请求后端支付接口，将接口生成的二维码返回给前端</li>
+</ul>
+<p><img data-src="7.png" alt=""></p>
+<ul>
+<li>微信进行扫码支付，需要注意的是，该二维码有效期只有五分钟</li>
+</ul>
+<p><img data-src="8.png" alt=""></p>
+<ul>
+<li>支付成功之后，我们还需要对交易进行确认，所以根据微信官方文档，调用统一查询接口</li>
+</ul>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9wYXkud2VpeGluLnFxLmNvbS93aWtpL2RvYy9hcGkvbmF0aXZlLnBocD9jaGFwdGVyPTlfMg==">https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_2</span></p>
+</blockquote>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">wx_check</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token comment">#统一订单查询接口</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    url <span class="token operator">=</span> <span class="token string">"https://api.mch.weixin.qq.com/pay/orderquery"</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    out_trade_no <span class="token operator">=</span> <span class="token string">"order_537236"</span> <span class="token comment">#支付后的商户订单号</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    key <span class="token operator">=</span> <span class="token string">'945b******d7'</span>  <span class="token comment"># 商户 api 密钥</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>    params <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token string">'appid'</span><span class="token punctuation">:</span> <span class="token string">'wx0*****ff'</span><span class="token punctuation">,</span>  <span class="token comment"># APPID</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token string">'mch_id'</span><span class="token punctuation">:</span> <span class="token string">'16*****08'</span><span class="token punctuation">,</span>  <span class="token comment"># 商户号</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token string">'out_trade_no'</span><span class="token punctuation">:</span> out_trade_no<span class="token punctuation">,</span>  <span class="token comment"># 订单编号</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token string">'nonce_str'</span><span class="token punctuation">:</span> <span class="token string">'ibuaiVcKdpRxkhJA'</span>  <span class="token comment"># 随机字符串</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    sign <span class="token operator">=</span> get_sign<span class="token punctuation">(</span>params<span class="token punctuation">,</span> key<span class="token punctuation">)</span>  <span class="token comment"># 获取签名</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    params<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">'sign'</span><span class="token punctuation">,</span> sign<span class="token punctuation">)</span>  <span class="token comment"># 添加签名到参数字典</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    xml <span class="token operator">=</span> trans_dict_to_xml<span class="token punctuation">(</span>params<span class="token punctuation">)</span>  <span class="token comment"># 转换字典为 XML</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    response <span class="token operator">=</span> requests<span class="token punctuation">.</span>request<span class="token punctuation">(</span><span class="token string">'post'</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> data<span class="token operator">=</span>xml<span class="token punctuation">)</span>  <span class="token comment"># 以 POST 方式向微信公众平台服务器发起请求</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    data_dict <span class="token operator">=</span> trans_xml_to_dict<span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>  <span class="token comment"># 将请求返回的数据转为字典</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>data_dict<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">'ok'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><div class="note info">
+<p>查询的订单编号可以使商户自己的订单编号，也可以是微信订单号，二者必取其一</p>
+</div>
+<p><img data-src="9.png" alt=""></p>
+<ul>
+<li>
+<p>访问接口 <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo4MDAwL3d4X2NoZWNrLw==">http://localhost:8000/wx_check/</span></p>
+<p>返回结果：</p>
+</li>
+</ul>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>返回结果：<span class="token punctuation">&#123;</span><span class="token string">'return_code'</span><span class="token punctuation">:</span> <span class="token string">'SUCCESS'</span><span class="token punctuation">,</span> <span class="token string">'return_msg'</span><span class="token punctuation">:</span> <span class="token string">'OK'</span><span class="token punctuation">,</span> <span class="token string">'appid'</span><span class="token punctuation">:</span> <span class="token string">'wx092344a76b9979ff'</span><span class="token punctuation">,</span> <span class="token string">'mch_id'</span><span class="token punctuation">:</span> <span class="token string">'1602932608'</span><span class="token punctuation">,</span> <span class="token string">'nonce_str'</span><span class="token punctuation">:</span> <span class="token string">'BVoaDmxxADkpSFEl'</span><span class="token punctuation">,</span> <span class="token string">'sign'</span><span class="token punctuation">:</span> <span class="token string">'23A86EB406B743E0C2C61C7E78DC9373'</span><span class="token punctuation">,</span> <span class="token string">'result_code'</span><span class="token punctuation">:</span> <span class="token string">'SUCCESS'</span><span class="token punctuation">,</span> <span class="token string">'openid'</span><span class="token punctuation">:</span> <span class="token string">'oy9q36f9Dpeokj9FWyN3j0znpIqE'</span><span class="token punctuation">,</span> <span class="token string">'is_subscribe'</span><span class="token punctuation">:</span> <span class="token string">'N'</span><span class="token punctuation">,</span> <span class="token string">'trade_type'</span><span class="token punctuation">:</span> <span class="token string">'NATIVE'</span><span class="token punctuation">,</span> <span class="token string">'bank_type'</span><span class="token punctuation">:</span> <span class="token string">'OTHERS'</span><span class="token punctuation">,</span> <span class="token string">'total_fee'</span><span class="token punctuation">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'fee_type'</span><span class="token punctuation">:</span> <span class="token string">'CNY'</span><span class="token punctuation">,</span> <span class="token string">'transaction_id'</span><span class="token punctuation">:</span> <span class="token string">'4200000806202012174121934231'</span><span class="token punctuation">,</span> <span class="token string">'out_trade_no'</span><span class="token punctuation">:</span> <span class="token string">'order_537236'</span><span class="token punctuation">,</span> <span class="token string">'attach'</span><span class="token punctuation">:</span> <span class="token string">' '</span><span class="token punctuation">,</span> <span class="token string">'time_end'</span><span class="token punctuation">:</span> <span class="token string">'20201217231553'</span><span class="token punctuation">,</span> <span class="token string">'trade_state'</span><span class="token punctuation">:</span> <span class="token string">'SUCCESS'</span><span class="token punctuation">,</span> <span class="token string">'cash_fee'</span><span class="token punctuation">:</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'trade_state_desc'</span><span class="token punctuation">:</span> <span class="token string">'支付成功'</span><span class="token punctuation">,</span> <span class="token string">'cash_fee_type'</span><span class="token punctuation">:</span> <span class="token string">'CNY'</span><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/Wechat/" rel="tag"><i class="ic i-tag"></i> Wechat</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 19:52:44" itemprop="dateModified" datetime="2021-01-06T19:52:44+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" title="Wechat-- 扫码支付">https://tuyustar.cn/Django框架/wechat-扫码支付/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeun65urj20zk0m81ii.jpg" title="PayPal--跨境支付">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Django 框架</span>
+  <h3>PayPal--跨境支付</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python3-django22-vue-%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98"><span class="toc-number">2.</span> <span class="toc-text"> Python3 + Django2.2 + Vue 实现微信扫码支付</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#wechat"><span class="toc-number">2.1.</span> <span class="toc-text"> Wechat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#django"><span class="toc-number">2.2.</span> <span class="toc-text"> Django</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue"><span class="toc-number">2.3.</span> <span class="toc-text"> Vue</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E4%B8%89%E7%A7%8D%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%BB%A7%E6%89%BF/" rel="bookmark" title="三种风格的模型继承">三种风格的模型继承</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="bookmark" title="序列化器">序列化器</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E6%95%B0%E6%8D%AE%E5%BA%93ORM%E6%93%8D%E4%BD%9C/" rel="bookmark" title="Django--数据库ORM操作">Django--数据库ORM操作</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-JWT%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Django--JWT使用">Django--JWT使用</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" rel="bookmark" title="Celery异步框架">Celery异步框架</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" rel="bookmark" title="Django + Uwsgi + Nginx 的生产环境部署">Django + Uwsgi + Nginx 的生产环境部署</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" rel="bookmark" title="PayPal--跨境支付">PayPal--跨境支付</a></li><li class="active"><a href="/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" rel="bookmark" title="Wechat--扫码支付">Wechat--扫码支付</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Django框架/wechat-扫码支付/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

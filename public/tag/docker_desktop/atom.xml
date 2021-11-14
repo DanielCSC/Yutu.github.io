@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://tuyustar.cn</id>
+    <title>The course of true love never did run smooth. • Posts by &#34;docker_desktop&#34; tag</title>
+    <link href="https://tuyustar.cn" />
+    <updated>2020-12-05T01:29:08.000Z</updated>
+    <category term="JWT" />
+    <category term="Celery" />
+    <category term="序列化器" />
+    <category term="生产环境部署" />
+    <category term="ORM" />
+    <category term="PayPal" />
+    <category term="Wechat" />
+    <category term="vue生命周期" />
+    <category term="UI组件" />
+    <category term="Docker_Desktop" />
+    <category term="数据可视化库" />
+    <category term="Git" />
+    <category term="jwt" />
+    <category term="OAuth2.0" />
+    <category term="SQL" />
+    <category term="WebSocket" />
+    <category term="Docker" />
+    <entry>
+        <id>https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/Docker-Desktop%E4%BD%BF%E7%94%A8Mysql%E3%80%81Redis/</id>
+        <title>Docker_Desktop使用Mysql、Redis</title>
+        <link rel="alternate" href="https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/Docker-Desktop%E4%BD%BF%E7%94%A8Mysql%E3%80%81Redis/"/>
+        <content type="html">&lt;h1 id=&#34;docker-desktop使用mysql&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-desktop使用mysql&#34;&gt;#&lt;/a&gt; Docker Desktop 使用 Mysql&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;拉取镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker pull mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;启动镜像，第一次启动最少需要指定 &lt;code&gt;MYSQL_ROOT_PASSWORD&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=000 -d mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;运行 Mysql&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker exec -it mysql mysql -uroot -p000&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker-desktop使用redis&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-desktop使用redis&#34;&gt;#&lt;/a&gt; Docker Desktop 使用 Redis&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;拉取镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker pull redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;2. 启动镜像&lt;/p&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run -it -p 6380:6379 redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;运行 Redis&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;redis-cli -p 6380			# 指定端口，可开启多个redis服务，互不影响，本地服务均可开启&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</content>
+        <category term="Docker_Desktop" />
+        <updated>2020-12-05T01:29:08.000Z</updated>
+    </entry>
+</feed>

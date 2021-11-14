@@ -1,0 +1,513 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="vue生命周期" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/">
+
+
+
+  <title>
+生命周期 (从摇篮到坟墓) - Vue |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">生命周期 (从摇篮到坟墓)
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-08-08 21:25:02">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-08-08T21:25:02+08:00">2020-08-08</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>1.2k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>1 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclx6phq6j20zk0m8e36.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Vue/" itemprop="item" rel="index" title="In Vue"><span itemprop="name">Vue</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="vue生命周期"><a class="markdownIt-Anchor" href="#vue生命周期">#</a> Vue–生命周期</h1>
+<img data-src="1.png"/>
+<h3 id="生命周期是什么"><a class="markdownIt-Anchor" href="#生命周期是什么">#</a> 生命周期是什么</h3>
+<blockquote>
+<p>生命周期 <code>（Life Cycle）</code> 的概念应用很广泛，特别是在政治、经济、环境、技术、社会等诸多领域经常出现，其基本涵义可以通俗地理解为 “从摇篮到坟墓” <code>（Cradle-to-Grave）</code> 的整个过程</p>
+<p>在 <code>Vue</code>  中实例从创建到销毁的过程就是生命周期，即指从创建、初始化数据、编译模板、挂载 Dom→渲染、更新→渲染、销毁等一系列过程</p>
+<p>我们可以把组件比喻成工厂里面的一条流水线，每个工人（生命周期）站在各自的岗位，当任务流转到工人身边的时候，工人就开始工作</p>
+</blockquote>
+<h3 id="生命周期有哪些"><a class="markdownIt-Anchor" href="#生命周期有哪些">#</a> 生命周期有哪些</h3>
+<p>先搂一眼官方文档的图片</p>
+<center><img data-src="3.png"  /></center>
+<ul>
+<li>Vue 生命周期总共可以分为 8 个阶段：创建前后，载入前后，更新前后，销毁前销毁后</li>
+</ul>
+<h3 id="1-在beforecreate和created钩子函数之间的生命周期"><a class="markdownIt-Anchor" href="#1-在beforecreate和created钩子函数之间的生命周期">#</a> 1. <strong>在 beforeCreate 和 created 钩子函数之间的生命周期</strong></h3>
+<ul>
+<li>
+<p>在这个生命周期之间，进行<strong>初始化事件，进行数据的观测</strong>，在 <code>created</code>  的时候数据已经和 <code>data</code> <strong> 属性进行绑定</strong>（放在 data 中的属性当值发生改变的同时，视图也会改变）。</p>
+</li>
+<li>
+<p><code>注意：此时还是没有el选项</code></p>
+</li>
+</ul>
+<h3 id="2-created钩子函数和beforemount间的生命周期"><a class="markdownIt-Anchor" href="#2-created钩子函数和beforemount间的生命周期">#</a> <strong>2. created 钩子函数和 beforeMount 间的生命周期</strong></h3>
+<center><img data-src="4.png"  /></center>
+<p>在这一阶段发生的故事还是比较多的。</p>
+<ul>
+<li>
+<p>首先判断是否存在 <code>el</code>  选项，若不存在则停止编译，直到调用 <code>vm.$mount(el)</code>  才会继续编译</p>
+</li>
+<li>
+<p>是否有模板，有则将模板转化为 <code>render</code>  函数，通过 <code>render</code>  函数去渲染创建 <code>Dom</code>  树，无则编译 <code>el</code>  对象外层 <code>HTML</code>  作为模板</p>
+</li>
+<li>
+<p>优先级： <code>render</code>  &gt;  <code>template</code>  &gt;  <code>outerHTML</code></p>
+</li>
+</ul>
+<h3 id="3-beforemount和mounted-钩子函数间的生命周期"><a class="markdownIt-Anchor" href="#3-beforemount和mounted-钩子函数间的生命周期">#</a> <strong>3. beforeMount 和 mounted 钩子函数间的生命周期</strong></h3>
+<center><img data-src="5.png"  /></center>
+<ul>
+<li>此阶段 <code>vm.el</code>  完成挂载， <code>vm.$el</code>  生成的 <code>DOM</code>  替换了 <code>el</code>  选项所对应的 <code>DOM</code></li>
+</ul>
+<h3 id="4-mounted"><a class="markdownIt-Anchor" href="#4-mounted">#</a> <strong>4. mounted</strong></h3>
+<ul>
+<li><code>vm.el</code>  已完成 <code>DOM</code>  的挂载与渲染，此刻打印 <code>vm.$el</code> ，发现之前的挂载点及内容已被替换成新的 <code>DOM</code></li>
+</ul>
+<h3 id="5-beforeupdate钩子函数和updated钩子函数间的生命周期"><a class="markdownIt-Anchor" href="#5-beforeupdate钩子函数和updated钩子函数间的生命周期">#</a> <strong>5. beforeUpdate 钩子函数和 updated 钩子函数间的生命周期</strong></h3>
+<center><img data-src="6.png"  /></center>
+<ul>
+<li>当 vue 发现 data 中的数据发生了改变，会<strong>触发对应组件的重新渲染</strong>，先后调用 <code>beforeUpdate</code>  和 <code>updated</code>  钩子函数</li>
+</ul>
+<h3 id="6beforedestroy"><a class="markdownIt-Anchor" href="#6beforedestroy">#</a> 6.<strong>beforeDestroy</strong></h3>
+<ul>
+<li><code>0beforeDestroy</code>  钩子函数在实例销毁之前调用。在这一步，实例仍然完全可用。</li>
+</ul>
+<h3 id="7destroyed"><a class="markdownIt-Anchor" href="#7destroyed">#</a> 7.<strong>destroyed</strong></h3>
+<ul>
+<li><code>destroyed</code>  钩子函数在 <code>Vue </code> 实例销毁后调用。调用后， <code>Vue </code> 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁，并不能清除 <code>Dom </code> ，仅仅销毁实例</li>
+</ul>
+<h3 id="数据请求在created和mouted的区别"><a class="markdownIt-Anchor" href="#数据请求在created和mouted的区别">#</a> 数据请求在 created 和 mouted 的区别</h3>
+<ul>
+<li>
+<p><code>created</code>  是在组件实例一旦创建完成的时候立刻调用，这时候页面 <code>dom</code>  节点并未生成</p>
+</li>
+<li>
+<p><code>mounted</code>  是在页面 <code>dom</code>  节点渲染完毕之后就立刻执行的</p>
+</li>
+<li>
+<p>触发时机上 <code>created</code>  是比 <code>mounted</code>  要更早的</p>
+</li>
+<li>
+<p>两者相同点：都能拿到实例对象的属性和方法</p>
+</li>
+<li>
+<p>讨论这个问题本质就是触发的时机，放在 <code>mounted</code>  请求有可能导致页面闪动（页面 <code>dom</code>  结构已经生成），但如果在页面加载前完成则不会出现此情况</p>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" rel="tag"><i class="ic i-tag"></i> vue生命周期</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 18:49:30" itemprop="dateModified" datetime="2021-01-06T18:49:30+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/" title="生命周期 (从摇篮到坟墓)">https://tuyustar.cn/Vue/Vue-生命周期-从摇篮到坟墓/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Django%E6%A1%86%E6%9E%B6/Django-JWT%E4%BD%BF%E7%94%A8/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitspjpbj20zk0m81ky.jpg" title="Django--JWT使用">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Django 框架</span>
+  <h3>Django--JWT使用</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipexj2jgzj20zk0m8b09.jpg" title="UI组件">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>UI组件</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.</span> <span class="toc-text"> Vue–生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 生命周期是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 生命周期有哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9C%A8beforecreate%E5%92%8Ccreated%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 1. 在 beforeCreate 和 created 钩子函数之间的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-created%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E5%92%8Cbeforemount%E9%97%B4%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 2. created 钩子函数和 beforeMount 间的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-beforemount%E5%92%8Cmounted-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E9%97%B4%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.5.</span> <span class="toc-text"> 3. beforeMount 和 mounted 钩子函数间的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-mounted"><span class="toc-number">1.0.6.</span> <span class="toc-text"> 4. mounted</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-beforeupdate%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E5%92%8Cupdated%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E9%97%B4%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.0.7.</span> <span class="toc-text"> 5. beforeUpdate 钩子函数和 updated 钩子函数间的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6beforedestroy"><span class="toc-number">1.0.8.</span> <span class="toc-text"> 6.beforeDestroy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7destroyed"><span class="toc-number">1.0.9.</span> <span class="toc-text"> 7.destroyed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%9C%A8created%E5%92%8Cmouted%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.0.10.</span> <span class="toc-text"> 数据请求在 created 和 mouted 的区别</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/" rel="bookmark" title="生命周期(从摇篮到坟墓)">生命周期(从摇篮到坟墓)</a></li><li><a href="/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" rel="bookmark" title="UI组件">UI组件</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Django%E6%A1%86%E6%9E%B6/Django-JWT%E4%BD%BF%E7%94%A8/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Vue/Vue-生命周期-从摇篮到坟墓/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

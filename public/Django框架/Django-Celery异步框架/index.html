@@ -1,0 +1,480 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="Celery" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/">
+
+
+
+  <title>
+Celery 异步框架 - Django 框架 |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Celery 异步框架
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-11-20 16:18:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-11-20T16:18:25+08:00">2020-11-20</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>3.8k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Django%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="In Django 框架"><span itemprop="name">Django 框架</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="celery异步框架"><a class="markdownIt-Anchor" href="#celery异步框架">#</a> Celery 异步框架</h2>
+<h3 id="介绍"><a class="markdownIt-Anchor" href="#介绍">#</a> 介绍</h3>
+<blockquote>
+<p><code>Celery </code> 是一个 基于 <code>python</code>  开发的分布式异步消息任务队列，通过它可以轻松的实现任务的异步处理， 如果你的业务场景中需要用到异步任务，就可以考虑使用 <code>celery</code></p>
+<p>你想对 100 台机器执行一条批量命令，可能会花很长时间 ，但你不想让你的程序等着结果返回，而是给你返回 一个任务 ID, 你过一段时间只需要拿着这个任务 id 就可以拿到任务执行结果， 在任务执行 ing 进行时，你可以继续做其它的事情</p>
+<p><code>Celery </code> 在执行任务时需要通过一个消息中间件来接收和发送任务消息，以及存储任务结果， 一般使用 <code>rabbitMQ </code> or  <code>Redis</code></p>
+</blockquote>
+<h3 id="优点"><a class="markdownIt-Anchor" href="#优点">#</a> 优点</h3>
+<ul>
+<li>简单：一但熟悉了 <code>celery</code>  的工作流程后，配置和使用还是比较简单的</li>
+<li>高可用：当任务执行失败或执行过程中发生连接中断， <code>celery </code> 会自动尝试重新执行任务</li>
+<li>快速：一个单进程的 <code>celery</code>  每分钟可处理上百万个任务</li>
+<li>灵活： 几乎 <code>celery</code>  的各个组件都可以被扩展及自定制</li>
+</ul>
+<h3 id="celery架构图"><a class="markdownIt-Anchor" href="#celery架构图">#</a> celery 架构图</h3>
+<p><img data-src="1.png" alt=""></p>
+<h3 id="celery-扮演生产者和消费者的角色"><a class="markdownIt-Anchor" href="#celery-扮演生产者和消费者的角色">#</a> Celery 扮演生产者和消费者的角色</h3>
+<ul>
+<li><code>Celery Beat</code>  : 任务调度器. Beat 进程会读取配置文件的内容，周期性的将配置中到期需要执行的任务发送给任务队列.</li>
+<li><code>Celery Worker</code>  : 执行任务的消费者，通常会在多台服务器运行多个消费者，提高运行效率.</li>
+<li><code>Broker</code>  : 消息代理，队列本身。也称为消息中间件。接受任务生产者发送过来的任务消息，存进队列再按序分发给任务消费方 (通常是消息队列或者数据库).</li>
+<li><code>Producer </code> : 任务生产者。调用 Celery API , 函数或者装饰器，而产生任务并交给任务队列处理的都是任务生产者.</li>
+<li><code>Result Backend</code>  : 任务处理完成之后保存状态信息和结果，以供查询.</li>
+</ul>
+<h3 id="django实现异步任务与定时任务"><a class="markdownIt-Anchor" href="#django实现异步任务与定时任务">#</a> Django 实现异步任务与定时任务</h3>
+<h4 id="相关依赖包"><a class="markdownIt-Anchor" href="#相关依赖包">#</a> 相关依赖包</h4>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>pip install Django<span class="token operator">==</span><span class="token number">2.2</span></pre></td></tr><tr><td data-num="2"></td><td><pre>pip install celery<span class="token operator">==</span><span class="token number">4.4</span><span class="token number">.7</span></pre></td></tr><tr><td data-num="3"></td><td><pre>pip install django<span class="token operator">-</span>celery<span class="token operator">-</span>beat<span class="token operator">==</span><span class="token number">2.1</span><span class="token number">.0</span></pre></td></tr><tr><td data-num="4"></td><td><pre>pip install redis<span class="token operator">==</span><span class="token number">3.5</span><span class="token number">.3</span></pre></td></tr></table></figure><h4 id="目录结构"><a class="markdownIt-Anchor" href="#目录结构">#</a> 目录结构</h4>
+<p><img data-src="2.png" alt=""></p>
+<h4 id="celerypy"><a class="markdownIt-Anchor" href="#celerypy">#</a>  <code>celery.py</code></h4>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> celery <span class="token keyword">import</span> Celery</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> os<span class="token punctuation">,</span>sys</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">import</span> django</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment"># 1. 添加 django 项目根路径</span></pre></td></tr><tr><td data-num="6"></td><td><pre>CELERY_BASE_DIR <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>dirname<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>abspath<span class="token punctuation">(</span>__file__<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>CELERY_BASE_DIR<span class="token punctuation">,</span> <span class="token string">'../loonflow'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># 2. 添加 django 环境</span></pre></td></tr><tr><td data-num="10"></td><td><pre>os<span class="token punctuation">.</span>environ<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span><span class="token string">"DJANGO_SETTINGS_MODULE"</span><span class="token punctuation">,</span><span class="token string">"loonflow.settings"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>django<span class="token punctuation">.</span>setup<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 读取配置</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token comment"># 3.celery 基本配置</span></pre></td></tr><tr><td data-num="14"></td><td><pre>app <span class="token operator">=</span> Celery<span class="token punctuation">(</span><span class="token string">'task'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    broker <span class="token operator">=</span> <span class="token string">'redis://127.0.0.1:6379/14'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    backend <span class="token operator">=</span> <span class="token string">'redis://127.0.0.1:6379/15'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    include<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'celery_task.tasks'</span><span class="token punctuation">,</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># 4. 实例化时可以添加下面这个属性</span></pre></td></tr><tr><td data-num="21"></td><td><pre>app<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>update<span class="token punctuation">(</span></pre></td></tr><tr><td data-num="22"></td><td><pre>   result_expires<span class="token operator">=</span><span class="token number">3600</span><span class="token punctuation">,</span>        <span class="token comment">#执行结果放到 redis 里，一个小时没人取就丢弃</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre><span class="token comment"># 5. 配置定时任务：每 5 秒钟执行 调用一次 celery_task 下 tasks.py 文件中的 add 函数</span></pre></td></tr><tr><td data-num="26"></td><td><pre>app<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>beat_schedule <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token string">'add-every-5-seconds'</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token string">'task'</span><span class="token punctuation">:</span> <span class="token string">'celery_task.tasks.test_task_crontab'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token string">'schedule'</span><span class="token punctuation">:</span> <span class="token number">5.0</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token string">'args'</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="32"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="33"></td><td><pre><span class="token comment"># 时区</span></pre></td></tr><tr><td data-num="34"></td><td><pre>app<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>timezone <span class="token operator">=</span> <span class="token string">'Asia/Shanghai'</span></pre></td></tr><tr><td data-num="35"></td><td><pre><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="36"></td><td><pre>   app<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="taskspy"><a class="markdownIt-Anchor" href="#taskspy">#</a>  <code>tasks.py</code></h3>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> <span class="token punctuation">.</span>celery <span class="token keyword">import</span> app</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> os<span class="token punctuation">,</span>sys</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">from</span> <span class="token punctuation">.</span>celery <span class="token keyword">import</span> CELERY_BASE_DIR</pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token triple-quoted-string string">'''测试定时任务'''</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>task</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">def</span> <span class="token function">test_task_crontab</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token triple-quoted-string string">'''添加django项目路径'''</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>CELERY_BASE_DIR<span class="token punctuation">,</span> <span class="token string">'../loonflow'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">from</span> libs<span class="token punctuation">.</span>aliyun_sms <span class="token keyword">import</span> test_crontab</pre></td></tr><tr><td data-num="12"></td><td><pre>    res <span class="token operator">=</span> test_crontab<span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">return</span> x <span class="token operator">+</span> y</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment"># 执行异步任务</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>task</span><span class="token punctuation">(</span>bind<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">def</span> <span class="token function">send_sms_code</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> mobile<span class="token punctuation">,</span> datas<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    sys<span class="token punctuation">.</span>path<span class="token punctuation">.</span>insert<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>CELERY_BASE_DIR<span class="token punctuation">,</span> <span class="token string">'../loonflow'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment"># 在方法中导包</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token keyword">from</span> libs<span class="token punctuation">.</span>aliyun_sms <span class="token keyword">import</span> send_sms</pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token comment"># time.sleep(5)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">try</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token comment"># 用 res 接收发送结果，成功是:０，　失败是：－１</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        res <span class="token operator">=</span> send_sms<span class="token punctuation">(</span>mobile<span class="token punctuation">,</span> datas<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        res <span class="token operator">=</span> <span class="token string">'-1'</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token keyword">if</span> res <span class="token operator">==</span> <span class="token string">'-1'</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token comment"># 如果发送结果是 -1  就重试.</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        self<span class="token punctuation">.</span>retry<span class="token punctuation">(</span>countdown<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> max_retries<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> exc<span class="token operator">=</span>Exception<span class="token punctuation">(</span><span class="token string">'短信发送失败'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="aliyun_smspy"><a class="markdownIt-Anchor" href="#aliyun_smspy">#</a>  <code>aliyun_sms.py</code></h3>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">send_sms</span><span class="token punctuation">(</span>phone<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    client <span class="token operator">=</span> AcsClient<span class="token punctuation">(</span>ALY_ACCESSKEY_ID<span class="token punctuation">,</span> ALY_ACCESSKEY_SECRET<span class="token punctuation">,</span> <span class="token string">'cn-hangzhou'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre>    request <span class="token operator">=</span> CommonRequest<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    request<span class="token punctuation">.</span>set_accept_format<span class="token punctuation">(</span><span class="token string">'json'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    request<span class="token punctuation">.</span>set_domain<span class="token punctuation">(</span><span class="token string">'dysmsapi.aliyuncs.com'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    request<span class="token punctuation">.</span>set_method<span class="token punctuation">(</span><span class="token string">'POST'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    request<span class="token punctuation">.</span>set_protocol_type<span class="token punctuation">(</span><span class="token string">'https'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    request<span class="token punctuation">.</span>set_version<span class="token punctuation">(</span><span class="token string">'2017-05-25'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    request<span class="token punctuation">.</span>set_action_name<span class="token punctuation">(</span><span class="token string">'SendSms'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'RegionId'</span><span class="token punctuation">,</span> <span class="token string">"cn-hangzhou"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'PhoneNumbers'</span><span class="token punctuation">,</span> phone<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'SignName'</span><span class="token punctuation">,</span> <span class="token string">"ABC商城"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'TemplateCode'</span><span class="token punctuation">,</span> <span class="token string">"SMS_205407934"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    request<span class="token punctuation">.</span>add_query_param<span class="token punctuation">(</span><span class="token string">'TemplateParam'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    response <span class="token operator">=</span> client<span class="token punctuation">.</span>do_action<span class="token punctuation">(</span>request<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token comment"># python2:  print(response)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    res <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>response<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"##########################################"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'执行了这个方法 send_message'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">def</span> <span class="token function">test_crontab</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'############### 执行test_crontab测试任务 #############'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'############### 审批超时短信提醒 #############'</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h4 id="测试定时任务"><a class="markdownIt-Anchor" href="#测试定时任务">#</a> 测试定时任务</h4>
+<blockquote>
+<p>开启异步 celery -A celery_task worker -l INFO</p>
+</blockquote>
+<p><img data-src="3.png" alt=""></p>
+<blockquote>
+<p>开启定时任务  celery -A celery_task beat -l INFO</p>
+</blockquote>
+<p><img data-src="4.png" alt=""></p>
+<h4 id="测试异步任务"><a class="markdownIt-Anchor" href="#测试异步任务">#</a> 测试异步任务</h4>
+<p><img data-src="5.png" alt=""></p>
+<h3 id="celery管理"><a class="markdownIt-Anchor" href="#celery管理">#</a> Celery 管理</h3>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>celery <span class="token operator">-</span>A celery_task worker <span class="token operator">-</span>l INFO			<span class="token comment"># 单线程</span></pre></td></tr><tr><td data-num="2"></td><td><pre>celery <span class="token operator">-</span>A celery_task status				<span class="token comment"># 查看当前有哪些 worker 在运行</span></pre></td></tr><tr><td data-num="3"></td><td><pre>celery multi start w1 w2 <span class="token operator">-</span>A celery_task <span class="token operator">-</span>l INFO		<span class="token comment"># 一次性启动 w1，w2 两个 worker</span></pre></td></tr><tr><td data-num="4"></td><td><pre>celery multi stop w1 w2 <span class="token operator">-</span>A celery_task			<span class="token comment">#停止 w1，w2 两个 worker</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment"># 项目中启动 celery worker , 并发数最多 50，最少 10 个</span></pre></td></tr><tr><td data-num="7"></td><td><pre>celery multi start celery_task <span class="token operator">-</span>A celery_task <span class="token operator">-</span>l debug <span class="token operator">-</span><span class="token operator">-</span>autoscale<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">10</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># 在项目中关闭 celery worker 所有进程</span></pre></td></tr><tr><td data-num="10"></td><td><pre>ps auxww<span class="token operator">|</span>grep <span class="token string">"celery worker"</span><span class="token operator">|</span>grep <span class="token operator">-</span>v grep<span class="token operator">|</span>awk <span class="token string">'&#123;print $2&#125;'</span><span class="token operator">|</span>xargs kill <span class="token operator">-</span><span class="token number">9</span></pre></td></tr></table></figure><h3 id="django-celery-beat管理"><a class="markdownIt-Anchor" href="#django-celery-beat管理">#</a> django-celery-beat 管理</h3>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 启动 celery beat</span></pre></td></tr><tr><td data-num="2"></td><td><pre>celery <span class="token operator">-</span>A celery_task beat <span class="token operator">-</span>l INFO</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 项目中启动 celery beat</span></pre></td></tr><tr><td data-num="5"></td><td><pre>celery <span class="token operator">-</span>A celery_task beat <span class="token operator">-</span>l debug <span class="token operator">>></span> <span class="token operator">/</span>aaa<span class="token operator">/</span>Scheduler<span class="token punctuation">.</span>log <span class="token number">2</span><span class="token operator">></span><span class="token operator">&amp;</span><span class="token number">1</span> <span class="token operator">&amp;</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token comment"># 停止 celery beat 杀死所有心跳进程</span></pre></td></tr><tr><td data-num="8"></td><td><pre>ps <span class="token operator">-</span>ef <span class="token operator">|</span> grep <span class="token operator">-</span>E <span class="token string">"celery -A celery_task beat"</span> <span class="token operator">|</span> grep <span class="token operator">-</span>v grep<span class="token operator">|</span> awk <span class="token string">'&#123;print $2&#125;'</span> <span class="token operator">|</span> xargs kill <span class="token operator">-</span>TERM <span class="token operator">&amp;</span><span class="token operator">></span> <span class="token operator">/</span>dev<span class="token operator">/</span>null</pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/Celery/" rel="tag"><i class="ic i-tag"></i> Celery</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 19:52:02" itemprop="dateModified" datetime="2021-01-06T19:52:02+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" title="Celery 异步框架">https://tuyustar.cn/Django框架/Django-Celery异步框架/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitht3xtj20zk0m8k5v.jpg" title="SQL--一切皆关系">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> 技术大杂烩</span>
+  <h3>SQL--一切皆关系</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Docker%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclil3m4ej20zk0m8tn8.jpg" title="Ubuntu安装Docker和docker的使用">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> 技术大杂烩</span>
+  <h3>Ubuntu安装Docker和docker的使用</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text"> Celery 异步框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text"> 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text"> 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#celery%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-number">1.3.</span> <span class="toc-text"> celery 架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#celery-%E6%89%AE%E6%BC%94%E7%94%9F%E4%BA%A7%E8%80%85%E5%92%8C%E6%B6%88%E8%B4%B9%E8%80%85%E7%9A%84%E8%A7%92%E8%89%B2"><span class="toc-number">1.4.</span> <span class="toc-text"> Celery 扮演生产者和消费者的角色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django%E5%AE%9E%E7%8E%B0%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.5.</span> <span class="toc-text"> Django 实现异步任务与定时任务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="toc-number">1.5.1.</span> <span class="toc-text"> 相关依赖包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.2.</span> <span class="toc-text"> 目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#celerypy"><span class="toc-number">1.5.3.</span> <span class="toc-text">  celery.py</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#taskspy"><span class="toc-number">1.6.</span> <span class="toc-text">  tasks.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#aliyun_smspy"><span class="toc-number">1.7.</span> <span class="toc-text">  aliyun_sms.py</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 测试定时任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.7.2.</span> <span class="toc-text"> 测试异步任务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#celery%E7%AE%A1%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text"> Celery 管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#django-celery-beat%E7%AE%A1%E7%90%86"><span class="toc-number">1.9.</span> <span class="toc-text"> django-celery-beat 管理</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E4%B8%89%E7%A7%8D%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%BB%A7%E6%89%BF/" rel="bookmark" title="三种风格的模型继承">三种风格的模型继承</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="bookmark" title="序列化器">序列化器</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E6%95%B0%E6%8D%AE%E5%BA%93ORM%E6%93%8D%E4%BD%9C/" rel="bookmark" title="Django--数据库ORM操作">Django--数据库ORM操作</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-JWT%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Django--JWT使用">Django--JWT使用</a></li><li class="active"><a href="/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" rel="bookmark" title="Celery异步框架">Celery异步框架</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" rel="bookmark" title="Django + Uwsgi + Nginx 的生产环境部署">Django + Uwsgi + Nginx 的生产环境部署</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" rel="bookmark" title="PayPal--跨境支付">PayPal--跨境支付</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" rel="bookmark" title="Wechat--扫码支付">Wechat--扫码支付</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Docker%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Django框架/Django-Celery异步框架/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

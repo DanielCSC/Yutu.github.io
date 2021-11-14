@@ -1,0 +1,545 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="UI组件" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/">
+
+
+
+  <title>
+UI 组件 - Vue |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">UI 组件
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-08-24 20:27:35">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-08-24T20:27:35+08:00">2020-08-24</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>1.5k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>1 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclx29mstj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclwrdwyaj20zk0m8are.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Vue/" itemprop="item" rel="index" title="In Vue"><span itemprop="name">Vue</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="1-ant-design-of-vue"><a class="markdownIt-Anchor" href="#1-ant-design-of-vue">#</a> 1. ANT DESIGN of Vue</h3>
+<center><img data-src="1.png"  /></center>
+<blockquote>
+<p>Ant Design 是蚂蚁金服技术部经过大量项目时间和总结，设计的前端 UI 组件库。</p>
+<p>致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视觉设计师、前端工程师、开发工程师等角色边界，将进行 UE 设计和 UI 设计人员统称为『设计者』，利用统一的规范进行设计赋能，全面提高中台产品体验和研发效率。</p>
+<p>Ant Design Vue 是使用 Vue 实现的遵循 Ant Design 设计规范的高质量 UI 组件库</p>
+</blockquote>
+<h4 id="特性"><a class="markdownIt-Anchor" href="#特性">#</a> 特性</h4>
+<ul>
+<li>
+<p>🌈 提炼自企业级中后台产品的交互语言和视觉风格。</p>
+</li>
+<li>
+<p>📦 开箱即用的高质量 Vue 组件</p>
+</li>
+<li>
+<p>🎉共享<span class="exturl" data-url="aHR0cDovL2FudC1kZXNpZ24uZ2l0ZWUuaW8vZG9jcy9zcGVjL2ludHJvZHVjZS1jbg=="> Ant Design of React</span> 设计工具体系。</p>
+</li>
+<li>
+<p>⚙️ 全链路开发和设计工具体系。</p>
+</li>
+<li>
+<p>🌍 数十个国际化语言支持。</p>
+</li>
+<li>
+<p>🎨 深入每个细节的主题定制能力。</p>
+</li>
+</ul>
+<h4 id="使用安装"><a class="markdownIt-Anchor" href="#使用安装">#</a> 使用安装</h4>
+<blockquote>
+<h4 id="1安装"><a class="markdownIt-Anchor" href="#1安装">#</a> 1. 安装</h4>
+<p>npm install --save ant-design-vue</p>
+</blockquote>
+<blockquote>
+<h4 id="2mainjs中全局引入并注册"><a class="markdownIt-Anchor" href="#2mainjs中全局引入并注册">#</a> 2.main.js 中全局引入并注册</h4>
+<p>import Antd from ‘ant-design-vue’;<br>
+import ‘ant-design-vue/dist/antd.css’;<br>
+Vue.use(Antd);</p>
+</blockquote>
+<blockquote>
+<h4 id="3在页面中不再需要引入注册组件可以直接使用所有的组件"><a class="markdownIt-Anchor" href="#3在页面中不再需要引入注册组件可以直接使用所有的组件">#</a> 3. 在页面中不再需要引入注册组件，可以直接使用所有的组件</h4>
+<pre><code class="language-vue">&lt;template&gt;
+ &lt;div&gt;    
+ 	&lt;a-button type=&quot;primary&quot;&gt;按钮&lt;/a-button&gt;  
+	&lt;/div&gt; 
+&lt;/template&gt;
+</code></pre>
+</blockquote>
+<h4 id="资源地址"><a class="markdownIt-Anchor" href="#资源地址">#</a> 资源地址</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly92dWUuYW50LmRlc2lnbi9kb2NzL3Z1ZS9pbnRyb2R1Y2UtY24v">官方文档</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9wcmV2aWV3LnByby5hbnRkdi5jb20=">Ant Design Pro 演示</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NlbmR5YS9hbnQtZGVzaWduLXByby12dWU=">Ant Design Pro 项目源码</span></li>
+</ul>
+<hr>
+<h3 id="2-element-ui"><a class="markdownIt-Anchor" href="#2-element-ui">#</a> 2. Element UI</h3>
+<center><img data-src="2.png" style="zoom:200%;" /></center>
+<blockquote>
+<p>Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的组件库，提供了配套设计资源，帮助网站快速成型。由饿了么公司前端团队开源。(目前已停止维护)</p>
+</blockquote>
+<h4 id="设计原则"><a class="markdownIt-Anchor" href="#设计原则">#</a> 设计原则</h4>
+<h5 id="一致性-consistency"><a class="markdownIt-Anchor" href="#一致性-consistency">#</a> 一致性 Consistency</h5>
+<ul>
+<li>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</li>
+<li>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</li>
+</ul>
+<h5 id="反馈-feedback"><a class="markdownIt-Anchor" href="#反馈-feedback">#</a> 反馈 Feedback</h5>
+<ul>
+<li>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</li>
+<li>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</li>
+</ul>
+<h5 id="效率-efficiency"><a class="markdownIt-Anchor" href="#效率-efficiency">#</a> 效率 Efficiency</h5>
+<ul>
+<li>简化流程：设计简洁直观的操作流程；</li>
+<li>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</li>
+<li>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</li>
+</ul>
+<h5 id="可控-controllability"><a class="markdownIt-Anchor" href="#可控-controllability">#</a> 可控 Controllability</h5>
+<ul>
+<li>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</li>
+<li>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</li>
+</ul>
+<h4 id="使用"><a class="markdownIt-Anchor" href="#使用">#</a> 使用</h4>
+<blockquote>
+<h4 id="1安装-2"><a class="markdownIt-Anchor" href="#1安装-2">#</a> 1. 安装</h4>
+<p>npm i element-ui -S</p>
+</blockquote>
+<blockquote>
+<h4 id="2mainjs中全局引入并注册-2"><a class="markdownIt-Anchor" href="#2mainjs中全局引入并注册-2">#</a> 2.main.js 中全局引入并注册</h4>
+<p>import ElementUI from ‘element-ui’;<br>
+import ‘element-ui/lib/theme-chalk/index.css’;<br>
+Vue.use(ElementUI);</p>
+</blockquote>
+<blockquote>
+<h4 id="3在页面中不再需要引入注册组件可以直接使用所有的组件-2"><a class="markdownIt-Anchor" href="#3在页面中不再需要引入注册组件可以直接使用所有的组件-2">#</a> 3. 在页面中不再需要引入注册组件，可以直接使用所有的组件</h4>
+<pre><code class="language-vue">&lt;template&gt;
+ &lt;div&gt;    
+ 	&lt;el-button type=&quot;primary&quot;&gt;主要按钮&lt;/el-button&gt;
+	&lt;/div&gt; 
+&lt;/template&gt;
+</code></pre>
+</blockquote>
+<h4 id="资源地址-2"><a class="markdownIt-Anchor" href="#资源地址-2">#</a> 资源地址</h4>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9lbGVtZW50LmVsZW1lLmlvLyMvemgtQ04vY29tcG9uZW50L2luc3RhbGxhdGlvbg==">官方文档</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9wYW5qaWFjaGVuLmdpdGh1Yi5pby92dWUtZWxlbWVudC1hZG1pbi8jL2xvZ2lu">vue-element-admin 演示</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9wYW5qaWFjaGVuLmdpdGh1Yi5pby92dWUtZWxlbWVudC1hZG1pbi1zaXRlL3poLw==">vue-element-admin 项目文档</span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1BhbkppYUNoZW4vdnVlLWVsZW1lbnQtYWRtaW4=">vue-element-admin 项目源码</span></li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/UI%E7%BB%84%E4%BB%B6/" rel="tag"><i class="ic i-tag"></i> UI组件</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 19:20:12" itemprop="dateModified" datetime="2021-01-06T19:20:12+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" title="UI 组件">https://tuyustar.cn/Vue/Vue-使用大同小异的UI组件/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicit31ffoj20zk0m8naf.jpg" title="生命周期(从摇篮到坟墓)">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>生命周期(从摇篮到坟墓)</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclxxcb6rj20zk0m8b29.jpg" title="SQL--一切皆关系">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> 技术大杂烩</span>
+  <h3>SQL--一切皆关系</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ant-design-of-vue"><span class="toc-number">1.</span> <span class="toc-text"> 1. ANT DESIGN of Vue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text"> 特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text"> 使用安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text"> 1. 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2mainjs%E4%B8%AD%E5%85%A8%E5%B1%80%E5%BC%95%E5%85%A5%E5%B9%B6%E6%B3%A8%E5%86%8C"><span class="toc-number">1.4.</span> <span class="toc-text"> 2.main.js 中全局引入并注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%B8%8D%E5%86%8D%E9%9C%80%E8%A6%81%E5%BC%95%E5%85%A5%E6%B3%A8%E5%86%8C%E7%BB%84%E4%BB%B6%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E6%89%80%E6%9C%89%E7%9A%84%E7%BB%84%E4%BB%B6"><span class="toc-number">1.5.</span> <span class="toc-text"> 3. 在页面中不再需要引入注册组件，可以直接使用所有的组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%9C%B0%E5%9D%80"><span class="toc-number">1.6.</span> <span class="toc-text"> 资源地址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-element-ui"><span class="toc-number">2.</span> <span class="toc-text"> 2. Element UI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">2.1.</span> <span class="toc-text"> 设计原则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E8%87%B4%E6%80%A7-consistency"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 一致性 Consistency</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%8D%E9%A6%88-feedback"><span class="toc-number">2.1.2.</span> <span class="toc-text"> 反馈 Feedback</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%88%E7%8E%87-efficiency"><span class="toc-number">2.1.3.</span> <span class="toc-text"> 效率 Efficiency</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%AF%E6%8E%A7-controllability"><span class="toc-number">2.1.4.</span> <span class="toc-text"> 可控 Controllability</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text"> 使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E5%AE%89%E8%A3%85-2"><span class="toc-number">2.3.</span> <span class="toc-text"> 1. 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2mainjs%E4%B8%AD%E5%85%A8%E5%B1%80%E5%BC%95%E5%85%A5%E5%B9%B6%E6%B3%A8%E5%86%8C-2"><span class="toc-number">2.4.</span> <span class="toc-text"> 2.main.js 中全局引入并注册</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E5%9C%A8%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%B8%8D%E5%86%8D%E9%9C%80%E8%A6%81%E5%BC%95%E5%85%A5%E6%B3%A8%E5%86%8C%E7%BB%84%E4%BB%B6%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8%E6%89%80%E6%9C%89%E7%9A%84%E7%BB%84%E4%BB%B6-2"><span class="toc-number">2.5.</span> <span class="toc-text"> 3. 在页面中不再需要引入注册组件，可以直接使用所有的组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%9C%B0%E5%9D%80-2"><span class="toc-number">2.6.</span> <span class="toc-text"> 资源地址</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/" rel="bookmark" title="生命周期(从摇篮到坟墓)">生命周期(从摇篮到坟墓)</a></li><li class="active"><a href="/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" rel="bookmark" title="UI组件">UI组件</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Vue/Vue-使用大同小异的UI组件/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

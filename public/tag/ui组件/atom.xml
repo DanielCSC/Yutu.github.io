@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://tuyustar.cn</id>
+    <title>The course of true love never did run smooth. • Posts by &#34;ui组件&#34; tag</title>
+    <link href="https://tuyustar.cn" />
+    <updated>2020-08-24T12:27:35.000Z</updated>
+    <category term="JWT" />
+    <category term="Celery" />
+    <category term="序列化器" />
+    <category term="生产环境部署" />
+    <category term="ORM" />
+    <category term="PayPal" />
+    <category term="Wechat" />
+    <category term="vue生命周期" />
+    <category term="UI组件" />
+    <category term="Docker_Desktop" />
+    <category term="数据可视化库" />
+    <category term="Git" />
+    <category term="jwt" />
+    <category term="OAuth2.0" />
+    <category term="SQL" />
+    <category term="WebSocket" />
+    <category term="Docker" />
+    <entry>
+        <id>https://tuyustar.cn/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/</id>
+        <title>UI组件</title>
+        <link rel="alternate" href="https://tuyustar.cn/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/"/>
+        <content type="html">&lt;h3 id=&#34;1-ant-design-of-vue&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-ant-design-of-vue&#34;&gt;#&lt;/a&gt; 1. ANT DESIGN of Vue&lt;/h3&gt;
+&lt;center&gt;&lt;img data-src=&#34;1.png&#34;  /&gt;&lt;/center&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ant Design 是蚂蚁金服技术部经过大量项目时间和总结，设计的前端 UI 组件库。&lt;/p&gt;
+&lt;p&gt;致力于提升『用户』和『设计者』使用体验的中台设计语言。它模糊了产品经理、交互设计师、视觉设计师、前端工程师、开发工程师等角色边界，将进行 UE 设计和 UI 设计人员统称为『设计者』，利用统一的规范进行设计赋能，全面提高中台产品体验和研发效率。&lt;/p&gt;
+&lt;p&gt;Ant Design Vue 是使用 Vue 实现的遵循 Ant Design 设计规范的高质量 UI 组件库&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;特性&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#特性&#34;&gt;#&lt;/a&gt; 特性&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;🌈 提炼自企业级中后台产品的交互语言和视觉风格。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;📦 开箱即用的高质量 Vue 组件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;🎉共享&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FudC1kZXNpZ24uZ2l0ZWUuaW8vZG9jcy9zcGVjL2ludHJvZHVjZS1jbg==&#34;&gt; Ant Design of React&lt;/span&gt; 设计工具体系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;⚙️ 全链路开发和设计工具体系。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;🌍 数十个国际化语言支持。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;🎨 深入每个细节的主题定制能力。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;使用安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用安装&#34;&gt;#&lt;/a&gt; 使用安装&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;h4 id=&#34;1安装&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1安装&#34;&gt;#&lt;/a&gt; 1. 安装&lt;/h4&gt;
+&lt;p&gt;npm install --save ant-design-vue&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h4 id=&#34;2mainjs中全局引入并注册&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2mainjs中全局引入并注册&#34;&gt;#&lt;/a&gt; 2.main.js 中全局引入并注册&lt;/h4&gt;
+&lt;p&gt;import Antd from ‘ant-design-vue’;&lt;br&gt;
+import ‘ant-design-vue/dist/antd.css’;&lt;br&gt;
+Vue.use(Antd);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h4 id=&#34;3在页面中不再需要引入注册组件可以直接使用所有的组件&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3在页面中不再需要引入注册组件可以直接使用所有的组件&#34;&gt;#&lt;/a&gt; 3. 在页面中不再需要引入注册组件，可以直接使用所有的组件&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vue&#34;&gt;&amp;lt;template&amp;gt;
+ &amp;lt;div&amp;gt;    
+ 	&amp;lt;a-button type=&amp;quot;primary&amp;quot;&amp;gt;按钮&amp;lt;/a-button&amp;gt;  
+	&amp;lt;/div&amp;gt; 
+&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;资源地址&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#资源地址&#34;&gt;#&lt;/a&gt; 资源地址&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly92dWUuYW50LmRlc2lnbi9kb2NzL3Z1ZS9pbnRyb2R1Y2UtY24v&#34;&gt;官方文档&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcmV2aWV3LnByby5hbnRkdi5jb20=&#34;&gt;Ant Design Pro 演示&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3NlbmR5YS9hbnQtZGVzaWduLXByby12dWU=&#34;&gt;Ant Design Pro 项目源码&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;2-element-ui&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-element-ui&#34;&gt;#&lt;/a&gt; 2. Element UI&lt;/h3&gt;
+&lt;center&gt;&lt;img data-src=&#34;2.png&#34; style=&#34;zoom:200%;&#34; /&gt;&lt;/center&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的组件库，提供了配套设计资源，帮助网站快速成型。由饿了么公司前端团队开源。(目前已停止维护)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;设计原则&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#设计原则&#34;&gt;#&lt;/a&gt; 设计原则&lt;/h4&gt;
+&lt;h5 id=&#34;一致性-consistency&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#一致性-consistency&#34;&gt;#&lt;/a&gt; 一致性 Consistency&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；&lt;/li&gt;
+&lt;li&gt;在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;反馈-feedback&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#反馈-feedback&#34;&gt;#&lt;/a&gt; 反馈 Feedback&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；&lt;/li&gt;
+&lt;li&gt;页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;效率-efficiency&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#效率-efficiency&#34;&gt;#&lt;/a&gt; 效率 Efficiency&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;简化流程：设计简洁直观的操作流程；&lt;/li&gt;
+&lt;li&gt;清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；&lt;/li&gt;
+&lt;li&gt;帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;可控-controllability&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#可控-controllability&#34;&gt;#&lt;/a&gt; 可控 Controllability&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；&lt;/li&gt;
+&lt;li&gt;结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#使用&#34;&gt;#&lt;/a&gt; 使用&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;h4 id=&#34;1安装-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1安装-2&#34;&gt;#&lt;/a&gt; 1. 安装&lt;/h4&gt;
+&lt;p&gt;npm i element-ui -S&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h4 id=&#34;2mainjs中全局引入并注册-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2mainjs中全局引入并注册-2&#34;&gt;#&lt;/a&gt; 2.main.js 中全局引入并注册&lt;/h4&gt;
+&lt;p&gt;import ElementUI from ‘element-ui’;&lt;br&gt;
+import ‘element-ui/lib/theme-chalk/index.css’;&lt;br&gt;
+Vue.use(ElementUI);&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;h4 id=&#34;3在页面中不再需要引入注册组件可以直接使用所有的组件-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3在页面中不再需要引入注册组件可以直接使用所有的组件-2&#34;&gt;#&lt;/a&gt; 3. 在页面中不再需要引入注册组件，可以直接使用所有的组件&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-vue&#34;&gt;&amp;lt;template&amp;gt;
+ &amp;lt;div&amp;gt;    
+ 	&amp;lt;el-button type=&amp;quot;primary&amp;quot;&amp;gt;主要按钮&amp;lt;/el-button&amp;gt;
+	&amp;lt;/div&amp;gt; 
+&amp;lt;/template&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;资源地址-2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#资源地址-2&#34;&gt;#&lt;/a&gt; 资源地址&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbGVtZW50LmVsZW1lLmlvLyMvemgtQ04vY29tcG9uZW50L2luc3RhbGxhdGlvbg==&#34;&gt;官方文档&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wYW5qaWFjaGVuLmdpdGh1Yi5pby92dWUtZWxlbWVudC1hZG1pbi8jL2xvZ2lu&#34;&gt;vue-element-admin 演示&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wYW5qaWFjaGVuLmdpdGh1Yi5pby92dWUtZWxlbWVudC1hZG1pbi1zaXRlL3poLw==&#34;&gt;vue-element-admin 项目文档&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL1BhbkppYUNoZW4vdnVlLWVsZW1lbnQtYWRtaW4=&#34;&gt;vue-element-admin 项目源码&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+        <category term="UI组件" />
+        <updated>2020-08-24T12:27:35.000Z</updated>
+    </entry>
+</feed>

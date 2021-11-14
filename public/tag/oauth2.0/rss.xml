@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>The course of true love never did run smooth. • Posts by &#34;oauth2.0&#34; tag</title>
+        <link>https://tuyustar.cn</link>
+        <description>不知道写啥</description>
+        <language>zh</language>
+        <pubDate>Wed, 08 Apr 2020 10:40:53 +0800</pubDate>
+        <lastBuildDate>Wed, 08 Apr 2020 10:40:53 +0800</lastBuildDate>
+        <category>JWT</category>
+        <category>Celery</category>
+        <category>序列化器</category>
+        <category>生产环境部署</category>
+        <category>ORM</category>
+        <category>PayPal</category>
+        <category>Wechat</category>
+        <category>vue生命周期</category>
+        <category>UI组件</category>
+        <category>Docker_Desktop</category>
+        <category>数据可视化库</category>
+        <category>Git</category>
+        <category>jwt</category>
+        <category>OAuth2.0</category>
+        <category>SQL</category>
+        <category>WebSocket</category>
+        <category>Docker</category>
+        <item>
+            <guid isPermalink="true">https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/OAuth2-0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%8E%88%E6%9D%83%E6%A8%A1%E5%BC%8F/</guid>
+            <title>OAuth2.0的四种授权模式</title>
+            <link>https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/OAuth2-0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%8E%88%E6%9D%83%E6%A8%A1%E5%BC%8F/</link>
+            <category>OAuth2.0</category>
+            <pubDate>Wed, 08 Apr 2020 10:40:53 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;oauth20-为何物&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#oauth20-为何物&#34;&gt;#&lt;/a&gt; &lt;strong&gt;OAuth2.0 为何物&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;OAuth&lt;/code&gt;  简单理解就是一种授权机制，它是在客户端和资源所有者之间的授权层，用来分离两种不同的角色。在资源所有者同意并向客户端颁发令牌后，客户端携带令牌可以访问资源所有者的资源。&lt;br&gt;
+ &lt;code&gt;OAuth2.0&lt;/code&gt;  是 &lt;code&gt;OAuth&lt;/code&gt;  协议的一个版本，有 &lt;code&gt;2.0&lt;/code&gt;  版本那就有 &lt;code&gt;1.0&lt;/code&gt;  版本，有意思的是 &lt;code&gt;OAuth2.0&lt;/code&gt;  却不向下兼容 &lt;code&gt;OAuth1.0&lt;/code&gt;  ，相当于废弃了 &lt;code&gt;1.0&lt;/code&gt;  版本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;举个小栗子解释一下什么是 OAuth 授权？&lt;/strong&gt;&lt;br&gt;
+在家肝文章饿了定了一个外卖，外卖小哥 30 秒火速到达了我家楼下，奈何有门禁进不来，可以输入密码进入，但出于安全的考虑我并不想告诉他密码。&lt;br&gt;
+此时外卖小哥看到门禁有一个高级按钮 “ &lt;code&gt;一键获取授权&lt;/code&gt; ”，只要我这边同意，他会获取到一个有效期 2 小时的令牌（ &lt;code&gt;token&lt;/code&gt; ）正常出入。&lt;/p&gt;
+&lt;p&gt;令牌（ &lt;code&gt;token&lt;/code&gt; ）和  &lt;code&gt;密码&lt;/code&gt;  的作用虽然相似都可以进入系统，但还有点不同。 &lt;code&gt;token&lt;/code&gt;  拥有权限范围，有时效性的，到期自动失效，而且无效修改&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;OAuth2.0&lt;/code&gt;  的授权简单理解其实就是获取令牌（ &lt;code&gt;token&lt;/code&gt; ）的过程， &lt;code&gt;OAuth&lt;/code&gt;  协议定义了四种获得令牌的授权方式（ &lt;code&gt;authorization grant&lt;/code&gt;  ）如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;隐式授权模式（Implicit Grant）&lt;/li&gt;
+&lt;li&gt;授权码授权模式（Authorization code Grant）&lt;/li&gt;
+&lt;li&gt;密码模式（Resource Owner Password Credentials Grant）&lt;/li&gt;
+&lt;li&gt;客户端凭证模式（Client Credentials Grant）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但值得注意的是，不管我们使用哪一种授权方式，在三方应用申请令牌之前，都必须在系统中去申请身份唯一标识：客户端 ID（ &lt;code&gt;client ID&lt;/code&gt; ）和 客户端密钥（ &lt;code&gt;client secret&lt;/code&gt; ）。这样做可以保证  &lt;code&gt;token&lt;/code&gt;  不被恶意使用。&lt;br&gt;
+下面我们会分析每种授权方式的原理，在进入正题前，先了解  &lt;code&gt;OAuth2.0&lt;/code&gt;  授权过程中几个重要的参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;response_type&lt;/code&gt; ：code 表示要求返回授权码，token 表示直接返回令牌&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client_id&lt;/code&gt; ：客户端身份标识&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;client_secret&lt;/code&gt; ：客户端密钥&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;redirect_uri&lt;/code&gt; ：重定向地址&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scope&lt;/code&gt; ：表示授权的范围， &lt;code&gt;read&lt;/code&gt;  只读权限， &lt;code&gt;all&lt;/code&gt;  读写权限&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grant_type&lt;/code&gt; ：表示授权的方式， &lt;code&gt;AUTHORIZATION_CODE&lt;/code&gt; （授权码）、 &lt;code&gt;password&lt;/code&gt; （密码）、 &lt;code&gt;client_credentials&lt;/code&gt; （凭证式）、 &lt;code&gt;refresh_token&lt;/code&gt;  更新令牌&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;state&lt;/code&gt; ：应用程序传递的一个随机数，用来防止 &lt;code&gt;CSRF&lt;/code&gt;  攻击。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;1隐式授权模式implicit-grant&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1隐式授权模式implicit-grant&#34;&gt;#&lt;/a&gt; 1. 隐式授权模式（Implicit Grant）&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步：用户访问页面时，重定向到认证服务器。&lt;/li&gt;
+&lt;li&gt;第二步：认证服务器给用户一个认证页面，等待用户授权。&lt;/li&gt;
+&lt;li&gt;第三步：用户授权，认证服务器想应用页面返回 Token&lt;/li&gt;
+&lt;li&gt;第四步：验证 Token，访问真正的资源页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;2授权码授权模式authorization-code-grant&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2授权码授权模式authorization-code-grant&#34;&gt;#&lt;/a&gt; 2. 授权码授权模式（Authorization code Grant）&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步：用户访问页面&lt;/li&gt;
+&lt;li&gt;第二步：访问的页面将请求重定向到认证服务器&lt;/li&gt;
+&lt;li&gt;第三步：认证服务器向用户展示授权页面，等待用户授权&lt;/li&gt;
+&lt;li&gt;第四步：用户授权，认证服务器生成一个 code 和带上 client_id 发送给应用服务器，然后，应用服务器拿到 code，并用 client_id 去后台查询对应的 client_secret&lt;/li&gt;
+&lt;li&gt;第五步：将 code、client_id、client_secret 传给认证服务器换取 access_token 和 refresh_token&lt;/li&gt;
+&lt;li&gt;第六步：将 access_token 和 refresh_token 传给应用服务器&lt;/li&gt;
+&lt;li&gt;第七步：验证 token，访问真正的资源页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;3密码模式resource-owner-password-credentials-grant&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3密码模式resource-owner-password-credentials-grant&#34;&gt;#&lt;/a&gt; 3. 密码模式（Resource Owner Password Credentials Grant）&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步：用户访问用页面时，输入第三方认证所需要的信息 (QQ / 微信账号密码)&lt;/li&gt;
+&lt;li&gt;第二步：应用页面那种这个信息去认证服务器授权&lt;/li&gt;
+&lt;li&gt;第三步：认证服务器授权通过，拿到 token，访问真正的资源页面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;优点&lt;/code&gt; ：不需要多次请求转发，额外开销，同时可以获取更多的用户信息。(都拿到账号密码了)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;缺点&lt;/code&gt; ：局限性，认证服务器和应用方必须有超高的信赖。(比如亲兄弟？)&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;应用场景&lt;/code&gt; ：自家公司搭建的认证服务器&lt;/p&gt;
+&lt;h1 id=&#34;4客户端凭证模式client-credentials-grant&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4客户端凭证模式client-credentials-grant&#34;&gt;#&lt;/a&gt; 4. 客户端凭证模式（Client Credentials Grant）&lt;/h1&gt;
+&lt;p&gt;&lt;img data-src=&#34;6.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一步：用户访问应用客户端&lt;/li&gt;
+&lt;li&gt;第二步：通过客户端定义的验证方法，拿到 token，无需授权&lt;/li&gt;
+&lt;li&gt;第三步：访问资源服务器 A&lt;/li&gt;
+&lt;li&gt;第四步：拿到一次 token 就可以畅通无阻的访问其他的资源页面。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;这是一种最简单的模式，只要 client 请求，我们就将 AccessToken 发送给它。这种模式是最方便但最不安全的模式。因此这就要求我们对 client 完全的信任，而 client 本身也是安全的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;因此这种模式一般用来提供给我们完全信任的服务器端服务。在这个过程中不需要用户的参与。&lt;/strong&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

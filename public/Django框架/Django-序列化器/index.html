@@ -1,0 +1,525 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="序列化器" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/">
+
+
+
+  <title>
+序列化器 - Django 框架 |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">序列化器
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-03-10 20:10:28">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-03-10T20:10:28+08:00">2020-03-10</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>8.3k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>8 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Django%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="In Django 框架"><span itemprop="name">Django 框架</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="1-序列化"><a class="markdownIt-Anchor" href="#1-序列化">#</a> 1. 序列化</h1>
+<hr>
+<p>DRF 的核心 就是 前后端分离的核心</p>
+<p><strong>前后端分离开发的核心：</strong><br>
+将模型转换为 json 称之为 序列化<br>
+将 json 转换成模型 称之为 反序列化</p>
+<h3 id="11-序列化器的字段"><a class="markdownIt-Anchor" href="#11-序列化器的字段">#</a> 1.1 序列化器的字段</h3>
+<hr>
+<p>Serializer 序列化器<br>
+为了得到模型里的字段，序列化器中的字段应与模型类中的字段名一致</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token comment"># read_only=True 只能读 不能修改</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        pub_date <span class="token operator">=</span> serializers<span class="token punctuation">.</span>DataField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'发布日期'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        readcount <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        is_delete <span class="token operator">=</span> serializers<span class="token punctuation">.</span>BooleanField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        image <span class="token operator">=</span> serializers<span class="token punctuation">.</span>ImageField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="12-序列化"><a class="markdownIt-Anchor" href="#12-序列化">#</a> 1.2 序列化</h3>
+<hr>
+<p>创建序列器</p>
+<p>序列化器的第一个参数：instance 用于序列化操作</p>
+<p>序列化器的第二个参数：data 用于反序列化操作</p>
+<p>除了 instance 和 data 参数外，在构造 Serializer 对象时，还可通过 context 参数额外添加数据，如</p>
+<blockquote>
+<p>serializer = AccountSerializer(account, context={‘request’: request})</p>
+</blockquote>
+<p>通过 context 参数附加的数据，可以通过 Serializer 对象的 context 属性获取。</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    book <span class="token operator">=</span> BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    </pre></td></tr><tr><td data-num="5"></td><td><pre>    s <span class="token operator">=</span> BookInfoSerializers<span class="token punctuation">(</span>instance<span class="token operator">=</span>book<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token comment"># 我们是通过 序列化器的 data 属性来获取 模型转换为字典的数据</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    s<span class="token punctuation">.</span>data</pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token comment"># 传递多个数据</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token comment"># 应用： 查询所有书籍列表</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>    books <span class="token operator">=</span> BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token comment"># 创建序列化器，将所有书籍信息传递给序列化器</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token comment"># books = [BookInfo,BookInfo,...] 对象列表</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    s <span class="token operator">=</span> BookInfoSerializers<span class="token punctuation">(</span>books<span class="token punctuation">,</span>many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    </pre></td></tr><tr><td data-num="19"></td><td><pre>    person <span class="token operator">=</span> PeopleInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment"># 序列化器初始化</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    s <span class="token operator">=</span> PeopleInfoSerializer<span class="token punctuation">(</span>instance<span class="token operator">=</span>person<span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="13-关联序列化器的操作"><a class="markdownIt-Anchor" href="#13-关联序列化器的操作">#</a> 1.3 关联序列化器的操作</h3>
+<hr>
+<p>对于关联字段，可以采用以下几种方式：</p>
+<p>1） PrimaryKeyRelatedField</p>
+<p>2） StringRelatedField</p>
+<p>3） 使用关联对象的序列化器</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">######### 关联序列化器 ##########################</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">PeopleInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token triple-quoted-string string">"""英雄数据序列化器"""</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        GENDER_CHOICES <span class="token operator">=</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="6"></td><td><pre>            <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">'male'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'female'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'ID'</span><span class="token punctuation">,</span> read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'名字'</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        gender <span class="token operator">=</span> serializers<span class="token punctuation">.</span>ChoiceField<span class="token punctuation">(</span>choices<span class="token operator">=</span>GENDER_CHOICES<span class="token punctuation">,</span> label<span class="token operator">=</span><span class="token string">'性别'</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        description <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'描述信息'</span><span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> allow_null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token triple-quoted-string string">''' PrimaryKeyRelatedField '''</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token comment"># 设置关联外键的时候，要将 read_only=True</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token comment"># 包含 read_only=True 参数时，该字段将不能用作反序列化使用</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token comment"># book = serializers.PrimaryKeyRelatedField (read_only=True,label=' 外键 ')</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token comment"># 或者</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token comment"># 包含 queryset 参数时，将被用作反序列化时参数校验使用</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token comment"># queryset 将关联模型的所有数据传递给这个属性就可以</span></pre></td></tr><tr><td data-num="22"></td><td><pre>        book <span class="token operator">=</span> serializers<span class="token punctuation">.</span>PrimaryKeyRelatedField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'外键'</span><span class="token punctuation">,</span>queryset<span class="token operator">=</span>BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span><span class="token builtin">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token triple-quoted-string string">'''StringRelatedField'''</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token comment"># 现在通过  PrimaryKeyRelatedField 得到的是一个  外键的一个值  2</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token comment"># 接下来通过 一个设置 来获取 书籍的名字</span></pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token comment"># StringRelatedField 可以获取关联模型中的 __str_ 里的字符串</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        book <span class="token operator">=</span> serializers<span class="token punctuation">.</span>StringRelatedField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token triple-quoted-string string">''' 使用关联对象的序列化器  拿到所有数据 '''</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        book <span class="token operator">=</span> BookInfoSerializer<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="14-关联查询"><a class="markdownIt-Anchor" href="#14-关联查询">#</a> 1.4 关联查询</h3>
+<hr>
+<p>关联模型类名小写_set 作为字段名</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharFIeld<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        pub_date <span class="token operator">=</span> serializers<span class="token punctuation">.</span>DataField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'发布日期'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        readcount <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        is_delete <span class="token operator">=</span> serializers<span class="token punctuation">.</span>BooleanField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        iamge <span class="token operator">=</span> serializers<span class="token punctuation">.</span>ImageField<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>        </pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token comment"># 书籍和人物的关系是 1：n   ===> many=True</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        peopleinfo_set <span class="token operator">=</span> serializers<span class="token punctuation">.</span>PrimaryKeyRelatedField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token keyword">return</span> self<span class="token punctuation">.</span>name</pre></td></tr></table></figure><h1 id="2-反序列化"><a class="markdownIt-Anchor" href="#2-反序列化">#</a> 2. 反序列化</h1>
+<hr>
+<p>反序列化 分为两个：</p>
+<ul>
+<li>
+<p>数据校验</p>
+</li>
+<li>
+<p>数据入库</p>
+</li>
+</ul>
+<h3 id="21-数据校验"><a class="markdownIt-Anchor" href="#21-数据校验">#</a> 2.1 数据校验</h3>
+<hr>
+<p>使用序列化器进行反序列化时，需要对数据进行验证后，才能获取验证成功的数据或保存成模型类对象。</p>
+<p>在获取反序列化的数据前，必须调用 is_valid () 方法进行验证，验证成功返回 True，否则返回 False。</p>
+<p>验证失败，可以通过序列化器对象的 errors 属性获取错误信息，返回字典，包含了字段和字段的错误。</p>
+<p>验证成功，可以通过序列化器对象的 validated_data 属性获取数据。</p>
+<p>在定义序列化器时，指明每个字段的序列化类型和选项参数，本身就是一种验证行为</p>
+<h4 id="211-数据校验的第一种方式"><a class="markdownIt-Anchor" href="#211-数据校验的第一种方式">#</a> 2.1.1 数据校验的第一种方式</h4>
+<hr>
+<p>在定义序列化器字段的时候，规定是什么类型 就要提交符合规则的数据</p>
+<p>例如：DateField 就需要传入符合日期规则的数据</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">############## 将 JSON 转换为模型  反序列化 #############</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>     <span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharFIeld<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        pub_date <span class="token operator">=</span> serializers<span class="token punctuation">.</span>DataField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'发布日期'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>       </pre></td></tr><tr><td data-num="11"></td><td><pre>        peopleinfo_set <span class="token operator">=</span> serializers<span class="token punctuation">.</span>PrimaryKeyRelatedField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>many<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">return</span> self<span class="token punctuation">.</span>name</pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'itcast'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token string">'pub_date'</span><span class="token punctuation">:</span><span class="token string">'123'</span>   <span class="token comment"># Flase</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token comment"># 'pub_date':'2010-1-1'  # True</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token comment"># 1. 创建序列器</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token comment"># 序列化器的第一个参数：instance 用于序列化操作</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment"># 序列化器的第二个参数：data 用于反序列化操作</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    serializer <span class="token operator">=</span> BookInfoSerializer<span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token comment"># 2. 需要调用序列化器的 is_valid 方法 valid 验证  返回 True False</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token comment"># 如果数据可用  返回 True</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    serializer<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token comment"># raise_exception=True 可以设置为 True 来抛出异常</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    serializer<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span>raise_exception<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h4 id="212-数据校验的第二种方式"><a class="markdownIt-Anchor" href="#212-数据校验的第二种方式">#</a> 2.1.2 数据校验的第二种方式</h4>
+<hr>
+<p>字段的选项</p>
+<p>required : 进行反序列化的时候，必须传这个字段</p>
+<p>min_length,max_length 作用于字符串</p>
+<p>min_value,max_value 作用于 Int 整型</p>
+<p>default 不传入数据 设置默认值</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharFIeld<span class="token punctuation">(</span>min_length<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">,</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        pub_date <span class="token operator">=</span> serializers<span class="token punctuation">.</span>DataField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'发布日期'</span><span class="token punctuation">,</span>required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token keyword">return</span> self<span class="token punctuation">.</span>name</pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'itcast'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token string">'pub_date'</span><span class="token punctuation">:</span><span class="token string">'123'</span>   <span class="token comment"># 若去掉 pub_date 则报错</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="313-数据校验的第三种方式"><a class="markdownIt-Anchor" href="#313-数据校验的第三种方式">#</a> 3.1.3 数据校验的第三种方式</h4>
+<hr>
+<p>对单个字段的数据进行验证</p>
+<p>语法形式为： 在序列化器中实现方法 def validate_字段名 ()</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharFIeld<span class="token punctuation">(</span>min_length<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">,</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        pub_date <span class="token operator">=</span> serializers<span class="token punctuation">.</span>DataField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'发布日期'</span><span class="token punctuation">,</span>required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        readcount <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>required<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token keyword">return</span> self<span class="token punctuation">.</span>name</pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">validate_readcount</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token comment"># value 就是字段传递过来的数据</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token keyword">if</span> value <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token keyword">raise</span> serializers<span class="token punctuation">.</span>ValidationError<span class="token punctuation">(</span><span class="token string">'阅读量不能为负数'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token comment"># 需要将 value 返回回去</span></pre></td></tr><tr><td data-num="19"></td><td><pre>            <span class="token keyword">return</span> value</pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'itcast'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span>  <span class="token comment"># 报异常</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="314-数据校验的第四种方式"><a class="markdownIt-Anchor" href="#314-数据校验的第四种方式">#</a> 3.1.4 数据校验的第四种方式</h4>
+<hr>
+<p>对多个字段的数据进行验证时</p>
+<p>语法形式为： 在序列化器中实现方法 def validate (self,attrs)</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharFIeld<span class="token punctuation">(</span>min_length<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">,</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        pub_date <span class="token operator">=</span> serializers<span class="token punctuation">.</span>DataField<span class="token punctuation">(</span>label<span class="token operator">=</span><span class="token string">'发布日期'</span><span class="token punctuation">,</span>required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        readcount <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>required<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        commentcount <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>default<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>required<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token keyword">return</span> self<span class="token punctuation">.</span>name</pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token comment"># 对多个字段进行验证</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token comment"># def validate(self,attrs):</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">validate</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token comment"># attrs  -->  其实就是 data</span></pre></td></tr><tr><td data-num="19"></td><td><pre>            readcount <span class="token operator">=</span> data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'readcount'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>            commentcount <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'commentcount'</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token keyword">if</span> readcount <span class="token operator">&lt;</span> commentcount<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="23"></td><td><pre>                <span class="token keyword">raise</span> serializers<span class="token punctuation">.</span>ValidationError<span class="token punctuation">(</span><span class="token string">'评论量不能大于阅读量'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>            <span class="token comment"># 要将数据返回</span></pre></td></tr><tr><td data-num="26"></td><td><pre>            <span class="token keyword">return</span> data</pre></td></tr><tr><td data-num="27"></td><td><pre></pre></td></tr><tr><td data-num="28"></td><td><pre></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token comment"># 自定义需求：评论量不能大于阅读量</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'itcast'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="33"></td><td><pre>        <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span> </pre></td></tr><tr><td data-num="34"></td><td><pre>        <span class="token string">'commentcount'</span><span class="token punctuation">:</span><span class="token number">100</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h4 id="315-数据校验的第五种方式"><a class="markdownIt-Anchor" href="#315-数据校验的第五种方式">#</a> 3.1.5 数据校验的第五种方式</h4>
+<hr>
+<p>自定义验证方法</p>
+<p>同时给字段添加自定义验证方法</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token comment"># 自定义验证方法</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">custom_validate</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token keyword">if</span> self <span class="token operator">==</span> <span class="token string">'admin'</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>            <span class="token keyword">raise</span> serializers<span class="token punctuation">.</span>ValidationError<span class="token punctuation">(</span><span class="token string">'我就是来捣乱的'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token builtin">id</span> <span class="token operator">=</span> serializers<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span>read_only<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'id'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>       </pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token comment"># validators=[]  是给字段 添加自定义验证方法</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        name <span class="token operator">=</span> serializers<span class="token punctuation">.</span>CharFIeld<span class="token punctuation">(</span>min_length<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span>max_length<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span>label<span class="token operator">=</span><span class="token string">'书籍名'</span><span class="token punctuation">,</span>validators<span class="token operator">=</span><span class="token punctuation">[</span>custom_validate<span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>       </pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token keyword">return</span> self<span class="token punctuation">.</span>name</pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token comment"># 规定：评论量不能大于阅读量</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'itcast'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span> </pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token string">'commentcount'</span><span class="token punctuation">:</span><span class="token number">100</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="22-数据入库"><a class="markdownIt-Anchor" href="#22-数据入库">#</a> 2.2 数据入库</h3>
+<hr>
+<h4 id="221-数据保存-save-方法"><a class="markdownIt-Anchor" href="#221-数据保存-save-方法">#</a> 2.2.1 数据保存 save 方法</h4>
+<hr>
+<p>继承自 Serializer 的序列化 我们在调用 save 方法的时候，需要手动实现 create 方法，</p>
+<p>调用 save 方法之前，必须调用 is_valid 方法，</p>
+<p>即 要想保存数据，必须保证数据是经过校验的。</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">create</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>validated_data<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token comment"># dict -->  data --> attrs  -->  validated_data</span></pre></td></tr><tr><td data-num="8"></td><td><pre>            <span class="token comment"># validated_data 此处其实就是 views.py 中的 dict</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            <span class="token comment"># validated_data 已经被验证过的数据</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token comment"># *  对列表进行解包    *list</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token comment"># ** 对字典进行解包    **dict</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token comment">#   此处解包  将 dict 中的值 赋值给对象中的对应字段</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            book <span class="token operator">=</span> BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token operator">**</span>validated_data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token comment"># create 需要将创建的对象返回</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token keyword">return</span> book </pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>     <span class="token triple-quoted-string string">''' views.py '''</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment"># 规定：评论量不能大于阅读量</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token builtin">dict</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'itcast'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>        <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span> </pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token string">'commentcount'</span><span class="token punctuation">:</span><span class="token number">100</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token punctuation">&#125;</span>   </pre></td></tr><tr><td data-num="29"></td><td><pre></pre></td></tr><tr><td data-num="30"></td><td><pre></pre></td></tr><tr><td data-num="31"></td><td><pre></pre></td></tr><tr><td data-num="32"></td><td><pre>    serializer <span class="token operator">=</span> BookInfoSerializer<span class="token punctuation">(</span>data<span class="token operator">=</span><span class="token builtin">dict</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="33"></td><td><pre>    serializer<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span>raise_exception<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="34"></td><td><pre></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token comment"># 3. 保存需要调用序列化器的 save 方法</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token comment"># 继承自 Serializer 的序列化 我们在调用 save 方法的时候，需要手动实现 create 方法</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    serializer<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h4 id="222-序列化器中传入两个参数即数据的更新操作"><a class="markdownIt-Anchor" href="#222-序列化器中传入两个参数即数据的更新操作">#</a> 2.2.2 序列化器中传入两个参数，即数据的更新操作</h4>
+<hr>
+<p>如果我们在序列化器中既传入了对象，又传入了数据</p>
+<p>系统会认为我们在更新数据</p>
+<p>继承自 Serializer 的类，要更新数据的时候，需要手动实现 update 方法</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookInfoSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>Serializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token keyword">def</span> <span class="token function">update</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>instance<span class="token punctuation">,</span>validated_data<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>            <span class="token comment"># instance : 就是我们在更新数据时，传入序列化器的对象</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            <span class="token comment"># validated_data ： 验证之后的数据</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>            instance<span class="token punctuation">.</span>name <span class="token operator">=</span> validated_data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span>instance<span class="token punctuation">.</span>name<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            instance<span class="token punctuation">.</span>pub_date <span class="token operator">=</span> validated_data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'pub_date'</span><span class="token punctuation">,</span>instance<span class="token punctuation">.</span>pub_date<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            instance<span class="token punctuation">.</span>readcount <span class="token operator">=</span> validated_data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'readcount'</span><span class="token punctuation">,</span>instance<span class="token punctuation">.</span>readcount<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            instance<span class="token punctuation">.</span>commentcount <span class="token operator">=</span> validated_data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'commentcount'</span><span class="token punctuation">,</span>instance<span class="token punctuation">.</span>commentcount<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>            instance<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token comment"># update () 方法需要我们手动返回对象</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token keyword">return</span> instance</pre></td></tr><tr><td data-num="18"></td><td><pre>            </pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token triple-quoted-string string">'''views.py '''</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token comment"># 1. 获取对象</span></pre></td></tr><tr><td data-num="24"></td><td><pre>    book <span class="token operator">=</span> BookInfo<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token builtin">id</span><span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token comment"># 2. 保存数据</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'lalala'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        <span class="token string">'pub_date'</span><span class="token punctuation">:</span><span class="token string">'2018-1-1'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>        <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token string">'commentcount'</span><span class="token punctuation">:</span><span class="token number">10</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token punctuation">&#125;</span>    </pre></td></tr><tr><td data-num="32"></td><td><pre></pre></td></tr><tr><td data-num="33"></td><td><pre>    <span class="token comment"># 3. 创建序列化器</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    s <span class="token operator">=</span> BookInfoSerializer<span class="token punctuation">(</span>instance<span class="token operator">=</span>book<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    <span class="token comment"># 4. 验证数据</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    s<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span>raise_exception<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="37"></td><td><pre>    <span class="token comment"># 5. 保存数据</span></pre></td></tr><tr><td data-num="38"></td><td><pre>    s<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h1 id="3-modelserializer"><a class="markdownIt-Anchor" href="#3-modelserializer">#</a> 3. ModelSerializer</h1>
+<hr>
+<p>如果我们想要使用序列化器对应的是 Django 的模型类，DRF 为我们提供了 ModelSerializer 模型类</p>
+<p>序列化器来帮助我们快速创建一个 Serializer 类。</p>
+<p>ModelSerializer 与常规的 Serializer 相同，但提供了：</p>
+<p>基于模型类自动生成一系列字段</p>
+<p>包含默认的 create () 和 update () 的实现</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token triple-quoted-string string">''' serializers.py '''</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">class</span> <span class="token class-name">BookSerializer</span><span class="token punctuation">(</span>serializers<span class="token punctuation">.</span>ModelSerializer<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        </pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token comment"># 如何设置   通过 class Meta</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">class</span> <span class="token class-name">Meta</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>            model <span class="token operator">=</span> BookInfo    <span class="token comment"># 设置关联模型     model 就是关联模型</span></pre></td></tr><tr><td data-num="8"></td><td><pre>            <span class="token comment"># fields = '__all__'  # fields 设置字段   __all__表示所有字段</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            <span class="token comment"># fields = ['id','name','pub_date']  # fields 设置字段  [] 列表显示来设置</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            exclude <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'image'</span><span class="token punctuation">]</span>   <span class="token comment"># exclude 排除列表中的字段，剩余的字段都显示</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>            read_only_fields <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span><span class="token string">'readcount'</span><span class="token punctuation">,</span><span class="token string">'commentcount'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token comment"># 我们可以对自动生成的字段  进行额外的设置</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            extra_kwargs <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>                <span class="token comment"># 字段名：&#123;选项：值&#125;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>                <span class="token string">'pub_date'</span><span class="token punctuation">:</span><span class="token punctuation">&#123;</span><span class="token string">'required'</span><span class="token punctuation">:</span><span class="token boolean">True</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre>                <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                    <span class="token string">'max_value'</span><span class="token punctuation">:</span><span class="token number">10000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="20"></td><td><pre>                    <span class="token string">'min_value'</span><span class="token punctuation">:</span><span class="token number">0</span></pre></td></tr><tr><td data-num="21"></td><td><pre>                <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre>    <span class="token triple-quoted-string string">'''views.py'''</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token comment">#########ModelSerializer##############</span></pre></td></tr><tr><td data-num="27"></td><td><pre>    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>            <span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'abc'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>            <span class="token string">'pub_date'</span><span class="token punctuation">:</span><span class="token string">'2018-1-1'</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="30"></td><td><pre>            <span class="token string">'readcount'</span><span class="token punctuation">:</span><span class="token number">1000</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="31"></td><td><pre>            <span class="token string">'commentcount'</span><span class="token punctuation">:</span><span class="token number">10</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token punctuation">&#125;</span>    </pre></td></tr><tr><td data-num="33"></td><td><pre></pre></td></tr><tr><td data-num="34"></td><td><pre>    s <span class="token operator">=</span> BookSerializer<span class="token punctuation">(</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="35"></td><td><pre>    s<span class="token punctuation">.</span>is_valid<span class="token punctuation">(</span>raise_exception<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="36"></td><td><pre>    s<span class="token punctuation">.</span>save<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="tag"><i class="ic i-tag"></i> 序列化器</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 19:52:30" itemprop="dateModified" datetime="2021-01-06T19:52:30+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" title="序列化器">https://tuyustar.cn/Django框架/Django-序列化器/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Django%E6%A1%86%E6%9E%B6/Django-%E4%B8%89%E7%A7%8D%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%BB%A7%E6%89%BF/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclgi503lj20zk0m8hdt.jpg" title="三种风格的模型继承">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Django 框架</span>
+  <h3>三种风格的模型继承</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Django%E6%A1%86%E6%9E%B6/Django-%E6%95%B0%E6%8D%AE%E5%BA%93ORM%E6%93%8D%E4%BD%9C/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="Django--数据库ORM操作">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Django 框架</span>
+  <h3>Django--数据库ORM操作</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text"> 1. 序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E7%9A%84%E5%AD%97%E6%AE%B5"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 1.1 序列化器的字段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 1.2 序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E5%85%B3%E8%81%94%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.0.3.</span> <span class="toc-text"> 1.3 关联序列化器的操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-%E5%85%B3%E8%81%94%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.0.4.</span> <span class="toc-text"> 1.4 关联查询</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">2.</span> <span class="toc-text"> 2. 反序列化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C"><span class="toc-number">2.0.1.</span> <span class="toc-text"> 2.1 数据校验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#211-%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E7%9A%84%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.0.1.1.</span> <span class="toc-text"> 2.1.1 数据校验的第一种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#212-%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.0.1.2.</span> <span class="toc-text"> 2.1.2 数据校验的第二种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#313-%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E7%9A%84%E7%AC%AC%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.0.1.3.</span> <span class="toc-text"> 3.1.3 数据校验的第三种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#314-%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E7%9A%84%E7%AC%AC%E5%9B%9B%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.0.1.4.</span> <span class="toc-text"> 3.1.4 数据校验的第四种方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#315-%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E7%9A%84%E7%AC%AC%E4%BA%94%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">2.0.1.5.</span> <span class="toc-text"> 3.1.5 数据校验的第五种方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-%E6%95%B0%E6%8D%AE%E5%85%A5%E5%BA%93"><span class="toc-number">2.0.2.</span> <span class="toc-text"> 2.2 数据入库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#221-%E6%95%B0%E6%8D%AE%E4%BF%9D%E5%AD%98-save-%E6%96%B9%E6%B3%95"><span class="toc-number">2.0.2.1.</span> <span class="toc-text"> 2.2.1 数据保存 save 方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#222-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8%E4%B8%AD%E4%BC%A0%E5%85%A5%E4%B8%A4%E4%B8%AA%E5%8F%82%E6%95%B0%E5%8D%B3%E6%95%B0%E6%8D%AE%E7%9A%84%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="toc-number">2.0.2.2.</span> <span class="toc-text"> 2.2.2 序列化器中传入两个参数，即数据的更新操作</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-modelserializer"><span class="toc-number">3.</span> <span class="toc-text"> 3. ModelSerializer</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E4%B8%89%E7%A7%8D%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%BB%A7%E6%89%BF/" rel="bookmark" title="三种风格的模型继承">三种风格的模型继承</a></li><li class="active"><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="bookmark" title="序列化器">序列化器</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E6%95%B0%E6%8D%AE%E5%BA%93ORM%E6%93%8D%E4%BD%9C/" rel="bookmark" title="Django--数据库ORM操作">Django--数据库ORM操作</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-JWT%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Django--JWT使用">Django--JWT使用</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" rel="bookmark" title="Celery异步框架">Celery异步框架</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" rel="bookmark" title="Django + Uwsgi + Nginx 的生产环境部署">Django + Uwsgi + Nginx 的生产环境部署</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" rel="bookmark" title="PayPal--跨境支付">PayPal--跨境支付</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" rel="bookmark" title="Wechat--扫码支付">Wechat--扫码支付</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Django%E6%A1%86%E6%9E%B6/Django-%E4%B8%89%E7%A7%8D%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%BB%A7%E6%89%BF/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Django%E6%A1%86%E6%9E%B6/Django-%E6%95%B0%E6%8D%AE%E5%BA%93ORM%E6%93%8D%E4%BD%9C/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Django框架/Django-序列化器/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

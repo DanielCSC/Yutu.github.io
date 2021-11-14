@@ -1,0 +1,531 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="SQL" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/">
+
+
+
+  <title>
+SQL-- 一切皆关系 - 技术大杂烩 |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">SQL-- 一切皆关系
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-11-17 20:12:50">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-11-17T20:12:50+08:00">2020-11-17</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>3.9k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>4 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclffsa1cj20zk0m811l.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/" itemprop="item" rel="index" title="In 技术大杂烩"><span itemprop="name">技术大杂烩</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="sql一切皆关系"><a class="markdownIt-Anchor" href="#sql一切皆关系">#</a> SQL–一切皆关系</h1>
+<p><img data-src="1.png" alt=""></p>
+<p>在计算机领域有许多伟大的设计理念和思想，例如：</p>
+<ul>
+<li>在 Unix 中，一切皆文件。</li>
+<li>在面向对象的编程语言中，一切皆对象。</li>
+</ul>
+<p>关系数据库同样也有自己的设计思想：<strong>在 SQL 中，一切皆关系</strong>。</p>
+<h3 id="关系模型"><a class="markdownIt-Anchor" href="#关系模型">#</a> 关系模型</h3>
+<blockquote>
+<p>关系模型（Relational model）由 E.F.Codd 博士于 1970 年提出，以集合论中的关系概念为基础；无论是现实世界中的实体对象还是它们之间的联系都使用关系表示。我们在数据库系统中看到的关系就是二维表（Table），由行（Row）和列（Column）组成。因此，也可以说关系表是由数据行构成的集合。</p>
+</blockquote>
+<p><img data-src="2.png" alt=""></p>
+<p>关系模型由<strong>数据结构</strong>、<strong>关系操作</strong>、<strong>完整性约束</strong>三部分组成。</p>
+<ul>
+<li>关系模型中的数据结构就是关系表，包括<strong>基础表</strong>、<strong>派生表</strong>（查询结果）和<strong>虚拟表</strong>（视图）。</li>
+<li>常用的关系操作包括<strong>增加</strong>、<strong>删除</strong>、<strong>修改</strong>和<strong>查询</strong>（CRUD），使用的就是 SQL 语言。其中查询操作最为复杂，包括选择（Selection）、投影（Projection）、并集（Union）、交集（Intersection）、差集（Exception）以及笛卡儿积（Cartesian product）等。</li>
+<li>完整性约束用于维护数据的完整性或者满足业务约束的需求，包括<strong>实体完整性</strong>（主键约束）、<strong>参照完整性</strong>（外键约束）以及<strong>用户定义的完整性</strong>（非空约束、唯一约束、检查约束和默认值）。</li>
+</ul>
+<h3 id="面向集合"><a class="markdownIt-Anchor" href="#面向集合">#</a> 面向集合</h3>
+<blockquote>
+<p>SQL（结构化查询语言）是操作关系数据库的标准语言。SQL 非常接近英语，使用起来非常简单。它在设计之初就考虑了非技术人员的使用需求，我们通常只需说明想要的结果（What），而将数据处理的过程（How）交给数据库管理系统。所以说，SQL 才是真正给人用的编程语言！😎</p>
+</blockquote>
+<p>接下来我们具体分析一下关系的各种操作语句；目的是为了让大家能够了解 <strong>SQL 是一种面向集合的编程语言，它的操作对象是集合，操作的结果也是集合</strong>。</p>
+<p>📝在关系数据库中，关系、表、集合三者通常表示相同的概念。</p>
+<h3 id="select"><a class="markdownIt-Anchor" href="#select">#</a> SELECT</h3>
+<p>下面是一个简单的查询语句：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> employee_id<span class="token punctuation">,</span> first_name<span class="token punctuation">,</span> last_name<span class="token punctuation">,</span> hire_date</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">FROM</span> employees<span class="token punctuation">;</span></pre></td></tr></table></figure><p>它的作用就是从 employees 表中查询员工信息。显然，我们都知道 FROM 之后是一个表（关系、集合）。不仅如此，整个查询语句的结果也是一个表。所以，我们可以将上面的查询作为表使用：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">FROM</span> <span class="token punctuation">(</span><span class="token keyword">SELECT</span> employee_id<span class="token punctuation">,</span> first_name<span class="token punctuation">,</span> last_name<span class="token punctuation">,</span> hire_date</pre></td></tr><tr><td data-num="3"></td><td><pre>          <span class="token keyword">FROM</span> employees<span class="token punctuation">)</span> t<span class="token punctuation">;</span></pre></td></tr></table></figure><p>括号内的查询语句被称为派生表，我们给它指定了一个别名叫做 t。同样，整个查询结果也是一个表；这就意味着我们可以继续嵌套，虽然这么做很无聊。</p>
+<p>我们再看一个 PostgreSQL 中的示例：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">-- PostgreSQL</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">SELECT</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">FROM</span> upper<span class="token punctuation">(</span><span class="token string">'sql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token operator">|</span> upper <span class="token operator">|</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token operator">|</span><span class="token comment">-------|</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token operator">|</span>   <span class="token keyword">SQL</span> <span class="token operator">|</span></pre></td></tr></table></figure><p>upper () 是一个大写转换的函数。它出现再 FROM 子句中，意味着它的结果也是一个表，只不过是 1 行 1 列的特殊表。</p>
+<p>SELECT 子句用于指定需要查询的字段，可以包含表达式、函数值等。SELECT 在关系操作中被称为投影（Projection），看下面的示意图应该就比较好理解了。</p>
+<p><img data-src="3.png" alt=""></p>
+<p>除了 SELECT 之外，还有一些常用的 SQL 子句。</p>
+<hr>
+<p>WHERE 用于指定数据过滤的条件，在关系运算中被称为选择（Selection），示意图如下：</p>
+<p><img data-src="4.png" alt=""></p>
+<p>ORDER BY 用于对查询的结果进行排序，示意图如下：</p>
+<p><img data-src="5.png" alt=""></p>
+<p>总之，SQL 可以完成各种数据操作，例如过滤、分组、排序、限定数量等；所有这些操作的对象都是关系表，结果也是关系表。</p>
+<p><img data-src="6.png" alt=""></p>
+<p>在这些关系操作中，有一个比较特殊，就是分组。</p>
+<hr>
+<h3 id="group-by"><a class="markdownIt-Anchor" href="#group-by">#</a> GROUP BY</h3>
+<p>分组（ GROUP BY）操作和其他的关系操作不同，因为它改变了关系的结构。来看下面的示例：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> department_id<span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">,</span> first_name</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">FROM</span> employees</pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> department_id<span class="token punctuation">;</span></pre></td></tr></table></figure><p>该语句的目的是按照部门统计员工的数量，但是存在一个语法错误，就是 first_name 不能出现在查询列表中。原因在于按照部门进行分组的话，每个部门包含多个员工；无法确定需要显示哪个员工的姓名，这是一个逻辑上的错误。</p>
+<p>所以说，GROUP BY 改变了集合元素（数据行）的结构，创建了一个全新的关系。分组操作的示意图如下：</p>
+<p><img data-src="7.png" alt=""></p>
+<p>尽管如此，GROUP BY 的结果仍然是一个集合。</p>
+<hr>
+<h3 id="union"><a class="markdownIt-Anchor" href="#union">#</a> UNION</h3>
+<p>SQL 面向集合特性最明显的体现就是 UNION（并集运算）、INTERSECT（交集运算）和 EXCEPT/MINUS（差集运算）。</p>
+<p>这些集合运算符的作用都是将两个集合并成一个集合，因此需要满足以下条件：</p>
+<ul>
+<li>两边的集合中字段的数量和顺序必须相同；</li>
+<li>两边的集合中对应字段的类型必须匹配或兼容。</li>
+</ul>
+<p>具体来说，UNION 和 UNION ALL 用于计算两个集合的并集，返回出现在第一个查询结果或者第二个查询结果中的数据。它们的区别在于 UNION 排除了结果中的重复数据，UNION ALL 保留了重复数据。下面是 UNION 操作的示意图：</p>
+<p><img data-src="8.png" alt=""></p>
+<p>INTERSECT 操作符用于返回两个集合中的共同部分，即同时出现在第一个查询结果和第二个查询结果中的数据，并且排除了结果中的重复数据。INTERSECT 运算的示意图如下：</p>
+<p><img data-src="9.png" alt=""></p>
+<p>EXCEPT 或者 MINUS 操作符用于返回两个集合的差集，即出现在第一个查询结果中，但不在第二个查询结果中的记录，并且排除了结果中的重复数据。EXCEPT 运算符的示意图如下：</p>
+<p><img data-src="10.png" alt=""></p>
+<p>除此之外，DISTINCT 运算符用于消除重复数据，也就是排除集合中的重复元素。</p>
+<blockquote>
+<p>SQL 中的关系概念来自数学中的集合理论，因此 UNION、INTERSECT 和 EXCEPT 分别来自集合论中的并集（∪ \cup∪）、交集（∩ \cap∩）和差集（∖ \setminus∖）运算。需要注意的是，集合理论中的集合不允许存在重复的数据，但是 SQL 允许。因此，SQL 中的集合也被称为多重集合（multiset）；多重集合与集合理论中的集合都是无序的，但是 SQL 可以通过 ORDER BY 子句对查询结果进行排序。</p>
+</blockquote>
+<hr>
+<h3 id="join"><a class="markdownIt-Anchor" href="#join">#</a> JOIN</h3>
+<p>在 SQL 中，不仅实体对象存储在关系表中，对象之间的联系也存储在关系表中。因此，当我们想要获取这些相关的数据时，需要使用到另一个操作：连接查询（JOIN）。</p>
+<p>常见的 SQL 连接查类型包括<strong>内连接</strong>、<strong>外连接</strong>、<strong>交叉连接</strong>等。其中，外连接又可以分为<strong>左外连接</strong>、<strong>右外连接</strong>以及<strong>全外连接</strong>。</p>
+<p>内连接（Inner Join）返回两个表中满足连接条件的数据，内连接的原理如下图所示：</p>
+<p><img data-src="11.png" alt=""></p>
+<p>左外连接（Left Outer Join）返回左表中所有的数据；对于右表，返回满足连接条件的数据；如果没有就返回空值。左外连接的原理如下图所示：</p>
+<p><img data-src="12.png" alt=""></p>
+<p>右外连接（Right Outer Join）返回右表中所有的数据；对于左表，返回满足连接条件的数据，如果没有就返回空值。右外连接与左外连接可以互换，以下两者等价：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre>t1 <span class="token keyword">RIGHT</span> <span class="token keyword">JOIN</span> t2</pre></td></tr><tr><td data-num="2"></td><td><pre>t2 <span class="token keyword">LEFT</span> <span class="token keyword">JOIN</span> t1</pre></td></tr></table></figure><p>全外连接（Full Outer Join）等价于左外连接加上右外连接，同时返回左表和右表中所有的数据；对于两个表中不满足连接条件的数据返回空值。全外连接的原理如下图所示：</p>
+<p><img data-src="13.png" alt=""></p>
+<p>交叉连接也称为笛卡尔积（Cartesian Product）。两个表的交叉连接相当于一个表的所有行和另一个表的所有行两两组合，结果的数量为两个表的行数相乘。交叉连接的原理如下图所示：</p>
+<p><img data-src="14.png" alt=""></p>
+<blockquote>
+<p>其他类型的连接还有<span class="exturl" data-url="aHR0cHM6Ly90b255ZG9uZy5ibG9nLmNzZG4ubmV0L2FydGljbGUvZGV0YWlscy8xMDgxNTIzMjk=">半连接</span>（SEMI JOIN）、<span class="exturl" data-url="aHR0cHM6Ly90b255ZG9uZy5ibG9nLmNzZG4ubmV0L2FydGljbGUvZGV0YWlscy8xMDgxNTIzMjk=">反连接</span>（ANTI JOIN）。</p>
+</blockquote>
+<p>集合操作将两个集合合并成一个更大或更小的集合；连接查询将两个集合转换成一个更大或更小的集合，同时获得了一个更大的元素（更多的列）。很多时候集合操作都可以通过连接查询来实现，例如：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> department_id</pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">FROM</span> departments</pre></td></tr><tr><td data-num="3"></td><td><pre> <span class="token keyword">UNION</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">SELECT</span> department_id</pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token keyword">FROM</span> employees<span class="token punctuation">;</span></pre></td></tr></table></figure><p>等价于：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> <span class="token keyword">COALESCE</span><span class="token punctuation">(</span>d<span class="token punctuation">.</span>department_id<span class="token punctuation">,</span> e<span class="token punctuation">.</span>department_id<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token keyword">FROM</span> departments d</pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">FULL</span> <span class="token keyword">JOIN</span> employees e <span class="token keyword">ON</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>department_id <span class="token operator">=</span> d<span class="token punctuation">.</span>department_id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">123</span></pre></td></tr></table></figure><p>我们已经介绍了许多查询的示例，接下来看看其他的数据操作。</p>
+<hr>
+<h3 id="dml"><a class="markdownIt-Anchor" href="#dml">#</a> DML</h3>
+<p>DML 表示数据操作语言，也就是插入、更新和删除。以下是一个插入语句示例：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> test<span class="token punctuation">(</span>id <span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token comment">-- MySQL、SQL Server 等</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> test<span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token comment">-- Oracle</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> test<span class="token punctuation">(</span>id<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">SELECT</span> <span class="token number">1</span> <span class="token keyword">AS</span> id <span class="token keyword">FROM</span> DUAL</pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token keyword">UNION</span> <span class="token keyword">ALL</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">SELECT</span> <span class="token number">2</span> <span class="token keyword">FROM</span> DUAL</pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">UNION</span> <span class="token keyword">ALL</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">SELECT</span> <span class="token number">3</span> <span class="token keyword">FROM</span> DUAL<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>我们通过一个 INSERT 语句插入了 3 条记录，或者说是插入了一个包含 3 条记录的关系表。因为，UNION ALL 返回的是一个关系表。VALUES 同样是指定了一个关系表，在 SQL Server 和 PostgreSQL 中支持以下语句：</p>
+<figure class="highlight sql"><figcaption data-lang="SQL"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">SELECT</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">FROM</span> <span class="token punctuation">(</span></pre></td></tr><tr><td data-num="3"></td><td><pre>  <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">)</span> test<span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>我们已经说过，FROM 之后是一个关系表，所以这里的 VALUES 也是一样。由于我们经常插入单条记录，并没有意识到实际上是以表为单位进行操作。</p>
+<p>同样，UPDATE 和 DELETE 语句也都是以关系表为单位的操作；只不过我们习惯了说更新一行数据或者删除几条记录。</p>
+<details class="primary"><summary>参考来源</summary><div>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hvcnNlcy9hcnRpY2xlL2RldGFpbHMvMTA0NTUzMDc1">https://blog.csdn.net/horses/article/details/104553075</span></p>
+</div></details>
+
+      <div class="tags">
+          <a href="/tags/SQL/" rel="tag"><i class="ic i-tag"></i> SQL</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 18:55:26" itemprop="dateModified" datetime="2021-01-06T18:55:26+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/" title="SQL-- 一切皆关系">https://tuyustar.cn/技术大杂烩/SQL-一切皆关系/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicivghyooj20zk0m8dir.jpg" title="UI组件">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Vue</span>
+  <h3>UI组件</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwrdwyaj20zk0m8are.jpg" title="Celery异步框架">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Django 框架</span>
+  <h3>Celery异步框架</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#sql%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text"> SQL–一切皆关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 关系模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E9%9B%86%E5%90%88"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 面向集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#select"><span class="toc-number">1.0.3.</span> <span class="toc-text"> SELECT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#group-by"><span class="toc-number">1.0.4.</span> <span class="toc-text"> GROUP BY</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#union"><span class="toc-number">1.0.5.</span> <span class="toc-text"> UNION</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">1.0.6.</span> <span class="toc-text"> JOIN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dml"><span class="toc-number">1.0.7.</span> <span class="toc-text"> DML</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/RESTfulAPI%E8%A7%84%E8%8C%83/" rel="bookmark" title="RESTful API设计规范">RESTful API设计规范</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/OAuth2-0%E7%9A%84%E5%9B%9B%E7%A7%8D%E6%8E%88%E6%9D%83%E6%A8%A1%E5%BC%8F/" rel="bookmark" title="OAuth2.0的四种授权模式">OAuth2.0的四种授权模式</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/JWT/" rel="bookmark" title="JWT--JSON WEB TOKEN">JWT--JSON WEB TOKEN</a></li><li class="active"><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/SQL-%E4%B8%80%E5%88%87%E7%9A%86%E5%85%B3%E7%B3%BB/" rel="bookmark" title="SQL--一切皆关系">SQL--一切皆关系</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Docker%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Ubuntu安装Docker和docker的使用">Ubuntu安装Docker和docker的使用</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/Docker-Desktop%E4%BD%BF%E7%94%A8Mysql%E3%80%81Redis/" rel="bookmark" title="Docker_Desktop使用Mysql、Redis">Docker_Desktop使用Mysql、Redis</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/Git%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" rel="bookmark" title="Git基本命令">Git基本命令</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/RBAC-%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" rel="bookmark" title="RBAC--权限控制">RBAC--权限控制</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/ECharts-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%BA%93/" rel="bookmark" title="ECharts--数据可视化库">ECharts--数据可视化库</a></li><li><a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/WebSocket-%E5%85%A8%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1%E7%9A%84%E5%8D%8F%E8%AE%AE/" rel="bookmark" title="WebSocket--全双工通信协议">WebSocket--全双工通信协议</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/Vue/Vue-%E4%BD%BF%E7%94%A8%E5%A4%A7%E5%90%8C%E5%B0%8F%E5%BC%82%E7%9A%84UI%E7%BB%84%E4%BB%B6/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '技术大杂烩/SQL-一切皆关系/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

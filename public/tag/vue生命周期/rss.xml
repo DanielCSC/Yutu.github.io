@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>The course of true love never did run smooth. • Posts by &#34;vue生命周期&#34; tag</title>
+        <link>https://tuyustar.cn</link>
+        <description>不知道写啥</description>
+        <language>zh</language>
+        <pubDate>Sat, 08 Aug 2020 21:25:02 +0800</pubDate>
+        <lastBuildDate>Sat, 08 Aug 2020 21:25:02 +0800</lastBuildDate>
+        <category>JWT</category>
+        <category>Celery</category>
+        <category>序列化器</category>
+        <category>生产环境部署</category>
+        <category>ORM</category>
+        <category>PayPal</category>
+        <category>Wechat</category>
+        <category>vue生命周期</category>
+        <category>UI组件</category>
+        <category>Docker_Desktop</category>
+        <category>数据可视化库</category>
+        <category>Git</category>
+        <category>jwt</category>
+        <category>OAuth2.0</category>
+        <category>SQL</category>
+        <category>WebSocket</category>
+        <category>Docker</category>
+        <item>
+            <guid isPermalink="true">https://tuyustar.cn/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/</guid>
+            <title>生命周期(从摇篮到坟墓)</title>
+            <link>https://tuyustar.cn/Vue/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-%E4%BB%8E%E6%91%87%E7%AF%AE%E5%88%B0%E5%9D%9F%E5%A2%93/</link>
+            <category>vue生命周期</category>
+            <pubDate>Sat, 08 Aug 2020 21:25:02 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;vue生命周期&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#vue生命周期&#34;&gt;#&lt;/a&gt; Vue–生命周期&lt;/h1&gt;
+&lt;img data-src=&#34;1.png&#34;/&gt;
+&lt;h3 id=&#34;生命周期是什么&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#生命周期是什么&#34;&gt;#&lt;/a&gt; 生命周期是什么&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生命周期 &lt;code&gt;（Life Cycle）&lt;/code&gt; 的概念应用很广泛，特别是在政治、经济、环境、技术、社会等诸多领域经常出现，其基本涵义可以通俗地理解为 “从摇篮到坟墓” &lt;code&gt;（Cradle-to-Grave）&lt;/code&gt; 的整个过程&lt;/p&gt;
+&lt;p&gt;在 &lt;code&gt;Vue&lt;/code&gt;  中实例从创建到销毁的过程就是生命周期，即指从创建、初始化数据、编译模板、挂载 Dom→渲染、更新→渲染、销毁等一系列过程&lt;/p&gt;
+&lt;p&gt;我们可以把组件比喻成工厂里面的一条流水线，每个工人（生命周期）站在各自的岗位，当任务流转到工人身边的时候，工人就开始工作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;生命周期有哪些&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#生命周期有哪些&#34;&gt;#&lt;/a&gt; 生命周期有哪些&lt;/h3&gt;
+&lt;p&gt;先搂一眼官方文档的图片&lt;/p&gt;
+&lt;center&gt;&lt;img data-src=&#34;3.png&#34;  /&gt;&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;Vue 生命周期总共可以分为 8 个阶段：创建前后，载入前后，更新前后，销毁前销毁后&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;1-在beforecreate和created钩子函数之间的生命周期&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-在beforecreate和created钩子函数之间的生命周期&#34;&gt;#&lt;/a&gt; 1. &lt;strong&gt;在 beforeCreate 和 created 钩子函数之间的生命周期&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在这个生命周期之间，进行&lt;strong&gt;初始化事件，进行数据的观测&lt;/strong&gt;，在 &lt;code&gt;created&lt;/code&gt;  的时候数据已经和 &lt;code&gt;data&lt;/code&gt; &lt;strong&gt; 属性进行绑定&lt;/strong&gt;（放在 data 中的属性当值发生改变的同时，视图也会改变）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;注意：此时还是没有el选项&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-created钩子函数和beforemount间的生命周期&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-created钩子函数和beforemount间的生命周期&#34;&gt;#&lt;/a&gt; &lt;strong&gt;2. created 钩子函数和 beforeMount 间的生命周期&lt;/strong&gt;&lt;/h3&gt;
+&lt;center&gt;&lt;img data-src=&#34;4.png&#34;  /&gt;&lt;/center&gt;
+&lt;p&gt;在这一阶段发生的故事还是比较多的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先判断是否存在 &lt;code&gt;el&lt;/code&gt;  选项，若不存在则停止编译，直到调用 &lt;code&gt;vm.$mount(el)&lt;/code&gt;  才会继续编译&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;是否有模板，有则将模板转化为 &lt;code&gt;render&lt;/code&gt;  函数，通过 &lt;code&gt;render&lt;/code&gt;  函数去渲染创建 &lt;code&gt;Dom&lt;/code&gt;  树，无则编译 &lt;code&gt;el&lt;/code&gt;  对象外层 &lt;code&gt;HTML&lt;/code&gt;  作为模板&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;优先级： &lt;code&gt;render&lt;/code&gt;  &amp;gt;  &lt;code&gt;template&lt;/code&gt;  &amp;gt;  &lt;code&gt;outerHTML&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-beforemount和mounted-钩子函数间的生命周期&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-beforemount和mounted-钩子函数间的生命周期&#34;&gt;#&lt;/a&gt; &lt;strong&gt;3. beforeMount 和 mounted 钩子函数间的生命周期&lt;/strong&gt;&lt;/h3&gt;
+&lt;center&gt;&lt;img data-src=&#34;5.png&#34;  /&gt;&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;此阶段 &lt;code&gt;vm.el&lt;/code&gt;  完成挂载， &lt;code&gt;vm.$el&lt;/code&gt;  生成的 &lt;code&gt;DOM&lt;/code&gt;  替换了 &lt;code&gt;el&lt;/code&gt;  选项所对应的 &lt;code&gt;DOM&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-mounted&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-mounted&#34;&gt;#&lt;/a&gt; &lt;strong&gt;4. mounted&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vm.el&lt;/code&gt;  已完成 &lt;code&gt;DOM&lt;/code&gt;  的挂载与渲染，此刻打印 &lt;code&gt;vm.$el&lt;/code&gt; ，发现之前的挂载点及内容已被替换成新的 &lt;code&gt;DOM&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;5-beforeupdate钩子函数和updated钩子函数间的生命周期&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-beforeupdate钩子函数和updated钩子函数间的生命周期&#34;&gt;#&lt;/a&gt; &lt;strong&gt;5. beforeUpdate 钩子函数和 updated 钩子函数间的生命周期&lt;/strong&gt;&lt;/h3&gt;
+&lt;center&gt;&lt;img data-src=&#34;6.png&#34;  /&gt;&lt;/center&gt;
+&lt;ul&gt;
+&lt;li&gt;当 vue 发现 data 中的数据发生了改变，会&lt;strong&gt;触发对应组件的重新渲染&lt;/strong&gt;，先后调用 &lt;code&gt;beforeUpdate&lt;/code&gt;  和 &lt;code&gt;updated&lt;/code&gt;  钩子函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6beforedestroy&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#6beforedestroy&#34;&gt;#&lt;/a&gt; 6.&lt;strong&gt;beforeDestroy&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0beforeDestroy&lt;/code&gt;  钩子函数在实例销毁之前调用。在这一步，实例仍然完全可用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;7destroyed&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#7destroyed&#34;&gt;#&lt;/a&gt; 7.&lt;strong&gt;destroyed&lt;/strong&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;destroyed&lt;/code&gt;  钩子函数在 &lt;code&gt;Vue &lt;/code&gt; 实例销毁后调用。调用后， &lt;code&gt;Vue &lt;/code&gt; 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁，并不能清除 &lt;code&gt;Dom &lt;/code&gt; ，仅仅销毁实例&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;数据请求在created和mouted的区别&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#数据请求在created和mouted的区别&#34;&gt;#&lt;/a&gt; 数据请求在 created 和 mouted 的区别&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;created&lt;/code&gt;  是在组件实例一旦创建完成的时候立刻调用，这时候页面 &lt;code&gt;dom&lt;/code&gt;  节点并未生成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;mounted&lt;/code&gt;  是在页面 &lt;code&gt;dom&lt;/code&gt;  节点渲染完毕之后就立刻执行的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;触发时机上 &lt;code&gt;created&lt;/code&gt;  是比 &lt;code&gt;mounted&lt;/code&gt;  要更早的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;两者相同点：都能拿到实例对象的属性和方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;讨论这个问题本质就是触发的时机，放在 &lt;code&gt;mounted&lt;/code&gt;  请求有可能导致页面闪动（页面 &lt;code&gt;dom&lt;/code&gt;  结构已经生成），但如果在页面加载前完成则不会出现此情况&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

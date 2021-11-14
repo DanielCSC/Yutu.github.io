@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>The course of true love never did run smooth. • Posts by &#34;docker&#34; tag</title>
+        <link>https://tuyustar.cn</link>
+        <description>不知道写啥</description>
+        <language>zh</language>
+        <pubDate>Tue, 01 Dec 2020 10:58:04 +0800</pubDate>
+        <lastBuildDate>Tue, 01 Dec 2020 10:58:04 +0800</lastBuildDate>
+        <category>JWT</category>
+        <category>Celery</category>
+        <category>序列化器</category>
+        <category>生产环境部署</category>
+        <category>ORM</category>
+        <category>PayPal</category>
+        <category>Wechat</category>
+        <category>vue生命周期</category>
+        <category>UI组件</category>
+        <category>Docker_Desktop</category>
+        <category>数据可视化库</category>
+        <category>Git</category>
+        <category>jwt</category>
+        <category>OAuth2.0</category>
+        <category>SQL</category>
+        <category>WebSocket</category>
+        <category>Docker</category>
+        <item>
+            <guid isPermalink="true">https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Docker%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+            <title>Ubuntu安装Docker和docker的使用</title>
+            <link>https://tuyustar.cn/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Docker%E5%92%8Cdocker%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+            <category>Docker</category>
+            <pubDate>Tue, 01 Dec 2020 10:58:04 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;docker-概述&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-概述&#34;&gt;#&lt;/a&gt; Docker 概述&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Docker &lt;/code&gt; 是一个开源的应用容器引擎，基于 &lt;code&gt;Go语言&lt;/code&gt; 并遵从 Apache2.0 协议开源。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Docker &lt;/code&gt; 可以让开发者打包他们的应用以及依赖包到一个 &lt;code&gt;轻量级&lt;/code&gt; 、 &lt;code&gt;可移植&lt;/code&gt; 的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
+&lt;p&gt;容器是完全使用 &lt;code&gt;沙箱机制&lt;/code&gt; ，相互之间不会有任何接口（类似 iPhone 的 app）, 更重要的是容器性能开销极低。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;docker应用场景&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker应用场景&#34;&gt;#&lt;/a&gt; Docker 应用场景&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Web &lt;/code&gt; 应用的自动化打包和发布。&lt;/p&gt;
+&lt;p&gt;自动化测试和持续集成、发布。&lt;/p&gt;
+&lt;p&gt;在服务型环境中部署和调整数据库或其他的后台应用。&lt;/p&gt;
+&lt;p&gt;从头编译或者扩展现有的  &lt;code&gt;OpenShift&lt;/code&gt;  或  &lt;code&gt;Cloud Foundry&lt;/code&gt;  平台来搭建自己的  &lt;code&gt;PaaS&lt;/code&gt;  环境&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;docker-的优点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-的优点&#34;&gt;#&lt;/a&gt; Docker 的优点&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Docker&lt;/code&gt;  是一个用于开发，交付和运行应用程序的开放平台。Docker 使您能够将应用程序与基础架构分开，从而可以快速交付软件。借助 Docker，您可以与管理应用程序相同的方式来管理基础架构。通过利用 Docker 的方法来 &lt;code&gt;快速交付&lt;/code&gt; ， &lt;code&gt;测试&lt;/code&gt; 和 &lt;code&gt;部署代码&lt;/code&gt; ，您可以大大减少编写代码和在生产环境中运行代码之间的延迟。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;在ubuntu中安装docker&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#在ubuntu中安装docker&#34;&gt;#&lt;/a&gt; 在 Ubuntu 中安装 Docker&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;更新 ubuntu 的 apt 源索引&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt-get update&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;安装包允许 apt 通过 HTTPS 使用仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt-get install \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    apt-transport-https \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ca-certificates \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    curl \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    software-properties-common&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;添加 Docker 官方 GPG key&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;设置 Docker 稳定版仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-dock&#34;&gt;sudo add-apt-repository \
+   &amp;quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;添加仓库后，更新 apt 源索引&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt-get update&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;安装最新版 Docker CE（社区版）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo apt-get install docker-ce&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;检查 Docker CE 是否安装正确&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo docker run hello-world&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;出现如下信息，表示安装成功&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img data-src=&#34;1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;docker使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker使用&#34;&gt;#&lt;/a&gt; Docker 使用&lt;/h1&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启动 docker&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo service docker start&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 停止 docker&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo service docker stop&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 重启 docker&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;sudo service docker restart&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;容器使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#容器使用&#34;&gt;#&lt;/a&gt; 容器使用&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;启动容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details class=&#34;info&#34;&gt;&lt;summary&gt;参数说明&lt;/summary&gt;&lt;div&gt;
+&lt;p&gt;-i: 交互式操作&lt;/p&gt;
+&lt;p&gt;-t: 终端&lt;/p&gt;
+&lt;p&gt;redis:redis 镜像&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker run -it redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;停止一个容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker stop &amp;lt;容器 ID&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;重启，停止的容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker restart &amp;lt;容器 ID&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;进入容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;在使用  &lt;code&gt;-d&lt;/code&gt;  参数时，容器启动后会进入后台。此时想要进入容器，可以通过以下指令进入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker attach &amp;lt;容器 ID&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker exec -it &amp;lt;容器 ID&gt;           # 推荐大家使用 docker exec 命令，因为此退出容器终端，不会导致容器的停止。&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;kill 掉一个已经在运行的容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker kill &amp;lt;容器 ID&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;清理掉所有处于终止状态的容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;docker container prune
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;删除容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker rm -f &amp;lt;容器 ID&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;镜像使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#镜像使用&#34;&gt;#&lt;/a&gt; 镜像使用&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;列出镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker images&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;details class=&#34;info&#34;&gt;&lt;summary&gt;各个选项说明&lt;/summary&gt;&lt;div&gt;
+&lt;p&gt;REPOSITORY：镜像所在的仓库名称&lt;/p&gt;
+&lt;p&gt;TAG：镜像标签&lt;/p&gt;
+&lt;p&gt;IMAGEID：镜像 ID&lt;/p&gt;
+&lt;p&gt;CREATED：镜像的创建日期 (不是获取该镜像的日期)&lt;/p&gt;
+&lt;p&gt;SIZE：镜像大小&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;p&gt;&lt;img data-src=&#34;2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;搜索镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker search redis&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;details class=&#34;info&#34;&gt;&lt;summary&gt;各项说明&lt;/summary&gt;&lt;div&gt;
+&lt;p&gt;NAME: 镜像仓库源的名称&lt;/p&gt;
+&lt;p&gt;DESCRIPTION: 镜像的描述&lt;/p&gt;
+&lt;p&gt;OFFICIAL: 是否 docker 官方发布&lt;/p&gt;
+&lt;p&gt;START: 类似 Github 里面的 star，表示点赞、喜欢的意思。&lt;/p&gt;
+&lt;p&gt;AUTOMATED: 自动构建。&lt;/p&gt;
+&lt;/div&gt;&lt;/details&gt;
+&lt;p&gt;&lt;img data-src=&#34;3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;拉取镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Docker 维护了镜像仓库，分为共有和私有两种，共有的官方仓库&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS8=&#34;&gt; Docker Hub (https://hub.docker.com/)&lt;/span&gt; 是最重要最常用的镜像仓库。私有仓库（Private Registry）是开发者或者企业自建的镜像存储库，通常用来保存企业 内部的 Docker 镜像，用于内部开发流程和产品的发布、版本控制。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker pull django&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;删除镜像&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker image rm 镜像名或镜像id&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;镜像备份与迁移&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker save -o ./ubuntu.tar ubuntu		# 镜像打包成文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker load -i ./ubuntu.tar			# 将镜像加载到本地&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;仓库管理&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#仓库管理&#34;&gt;#&lt;/a&gt; 仓库管理&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;仓库（Repository）&lt;/code&gt; 是集中存放镜像的地方。以下介绍一下 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS8=&#34;&gt;Docker Hub&lt;/span&gt;。当然不止 Docker hub，只是远程的服务商不一样，操作都是一样的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;docker-hub&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#docker-hub&#34;&gt;#&lt;/a&gt; Docker Hub&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;目前 Docker 官方维护了一个公共仓库 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS8=&#34;&gt;Docker Hub&lt;/span&gt;。&lt;/p&gt;
+&lt;p&gt;大部分需求都可以通过在 Docker Hub 中直接下载镜像来实现。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;注册&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#注册&#34;&gt;#&lt;/a&gt; 注册&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9odWIuZG9ja2VyLmNvbS8=&#34;&gt;https://hub.docker.com&lt;/span&gt; 免费注册一个 Docker 账号。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;登录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker login&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;退出&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker logout&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;可以通过 docker search 命令来查找官方仓库中的镜像，并利用 docker pull 命令来将它下载到本地。&lt;/li&gt;
+&lt;li&gt;以 Mysql 为关键词进行搜索&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight python&#34;&gt;&lt;figcaption data-lang=&#34;python&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker search mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;使用 docker pull 将官方 ubuntu 镜像下载到本地：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;language-dock&#34;&gt;docker pull mysql
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;推送对象
+&lt;ul&gt;
+&lt;li&gt;用户登录后，可以通过 docker push 命令将自己的镜像推送到 Docker Hub。&lt;/li&gt;
+&lt;li&gt;以下命令中的 username 请替换为你的 Docker 账号用户名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight dockerfile&#34;&gt;&lt;figcaption data-lang=&#34;Docker&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker tag mysql username/mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker image ls&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker push username/mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;docker search username/mysql&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
+    </channel>
+</rss>

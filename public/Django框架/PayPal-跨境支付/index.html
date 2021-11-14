@@ -1,0 +1,497 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="The course of true love never did run smooth." href="https://tuyustar.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="The course of true love never did run smooth." href="https://tuyustar.cn/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="PayPal" />
+
+
+<link rel="canonical" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/">
+
+
+
+  <title>
+PayPal-- 跨境支付 - Django 框架 |
+Yutu's Cabin = The course of true love never did run smooth.</title>
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">PayPal-- 跨境支付
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2020-12-26 14:47:25">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2020-12-26T14:47:25+08:00">2020-12-26</time>
+  </span>
+  <span class="item" title="Symbols count in article">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">Symbols count in article</span>
+    <span>3.4k</span>
+    <span class="text">words</span>
+  </span>
+  <span class="item" title="Reading time">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">Reading time</span>
+    <span>3 mins.</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yutu's Cabin</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeyhsblkj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Django%E6%A1%86%E6%9E%B6/" itemprop="item" rel="index" title="In Django 框架"><span itemprop="name">Django 框架</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh">
+  <link itemprop="mainEntityOfPage" href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="YuTu ✨">
+    <meta itemprop="description" content=", 不知道写啥">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="The course of true love never did run smooth.">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="概述"><a class="markdownIt-Anchor" href="#概述">#</a> 概述</h1>
+<blockquote>
+<p>PayPal 是倍受全球亿万用户追捧的国际贸易支付工具</p>
+<p>是全球商户和消费者最受欢迎的电子支付方式之一，在跨境交易中有着超过 90% 的卖家和超过 85% 的买家认可并正在使用 PayPal 电子支付业务。当然，PayPal 国际业务体量如此惊人，肯定不是毫无原因的</p>
+<p>PayPal 支付的优势就是其业务网络遍布全球。目前 PayPal 的庞大网络覆盖了全球 200 多个国家，可提供 20 多种语言服务，并接受 100 多种货币付款和 56 种货币提现。同时，还允许在账户中持有 25 种货币余额。换句话说，只要付款人拥有一个 PayPal 账户，他就拥有了在 200 多个国家进行电子支付购物，并在需要服务的时候享受到母语支持的各种便捷服务。</p>
+</blockquote>
+<h1 id="python3-django22-vue集成paypal跨境支付"><a class="markdownIt-Anchor" href="#python3-django22-vue集成paypal跨境支付">#</a> Python3 + Django2.2 + Vue 集成 PayPal 跨境支付</h1>
+<h2 id="paypal"><a class="markdownIt-Anchor" href="#paypal">#</a> PayPal</h2>
+<ol>
+<li>首先注册官网账号</li>
+</ol>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cucGF5cGFsLmNvbQ==">https://www.paypal.com</span></p>
+</blockquote>
+<ol start="2">
+<li>开发者平台</li>
+</ol>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIucGF5cGFsLmNvbS9kZXZlbG9wZXIvYWNjb3VudHMv">https://developer.paypal.com/developer/accounts/</span></p>
+</blockquote>
+<ol start="3">
+<li>沙盒账号控制页面</li>
+</ol>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIucGF5cGFsLmNvbS9kZXZlbG9wZXIvYWNjb3VudHMv">https://developer.paypal.com/developer/accounts/</span></p>
+</blockquote>
+<div class="note info">
+<p>会默认创建两个账号，一个是商户的，另外一个是个人的</p>
+</div>
+<ol start="4">
+<li>进入应用管理页面，点<span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIucGF5cGFsLmNvbS9kZXZlbG9wZXIvYWNjb3VudHMv">这里</span></li>
+</ol>
+<ul>
+<li>记录下它的 client_id 和 client_secret，一会要用到</li>
+</ul>
+<p><img data-src="1.png" alt=""></p>
+<p><img data-src="2.png" alt=""></p>
+<h2 id="django"><a class="markdownIt-Anchor" href="#django">#</a> Django</h2>
+<ol>
+<li>安装 paypal 在 python 端的 SDK</li>
+</ol>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre>pip3 install paypalrestsdk</pre></td></tr></table></figure><ol start="2">
+<li>生成支付链接</li>
+</ol>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">import</span> paypalrestsdk</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">def</span> <span class="token function">get_parpal_url</span><span class="token punctuation">(</span>total_money<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    paypalrestsdk<span class="token punctuation">.</span>configure<span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token string">"mode"</span><span class="token punctuation">:</span> <span class="token string">"sandbox"</span><span class="token punctuation">,</span>				<span class="token comment"># sandbox 代表沙盒</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token string">"client_id"</span><span class="token punctuation">:</span> <span class="token string">"你的client_id"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token string">"client_secret"</span><span class="token punctuation">:</span> <span class="token string">"你的client_secret"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>    payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">(</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token string">"intent"</span><span class="token punctuation">:</span> <span class="token string">"sale"</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token string">"payer"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token string">"payment_method"</span><span class="token punctuation">:</span> <span class="token string">"paypal"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token string">"redirect_urls"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token string">"return_url"</span><span class="token punctuation">:</span> <span class="token string">"http://localhost:8080/paypal_back/"</span><span class="token punctuation">,</span>		<span class="token comment"># 支付成功跳转页面</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token string">"cancel_url"</span><span class="token punctuation">:</span> <span class="token string">"http://localhost:3000/paypal/cancel/"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>  <span class="token comment"># 取消支付页面</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token string">"transactions"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token string">"amount"</span><span class="token punctuation">:</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>                <span class="token string">"total"</span><span class="token punctuation">:</span> total_money<span class="token punctuation">,</span>				<span class="token comment"># 金额</span></pre></td></tr><tr><td data-num="20"></td><td><pre>                <span class="token string">"currency"</span><span class="token punctuation">:</span> <span class="token string">"USD"</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="21"></td><td><pre>            <span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"Paypal余额充值"</span><span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">if</span> payment<span class="token punctuation">.</span>create<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Payment created successfully"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token keyword">for</span> link <span class="token keyword">in</span> payment<span class="token punctuation">.</span>links<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="26"></td><td><pre>            <span class="token keyword">if</span> link<span class="token punctuation">.</span>rel <span class="token operator">==</span> <span class="token string">"approval_url"</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="27"></td><td><pre>                approval_url <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>link<span class="token punctuation">.</span>href<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Redirect for approval: %s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>approval_url<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="29"></td><td><pre>                <span class="token keyword">return</span> approval_url</pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">else</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="31"></td><td><pre>        <span class="token comment"># print(payment.error)</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"支付失败"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ol start="3">
+<li><code>views.py</code></li>
+</ol>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> <span class="token punctuation">.</span>Paypal <span class="token keyword">import</span> get_parpal_url</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> paypalrestsdk</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token comment"># 支付链接</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">PayPalView</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        uid <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        pay_method <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'pay_method'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        total_money <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'total_money'</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>        parpal_url <span class="token operator">=</span> get_parpal_url<span class="token punctuation">(</span>total_money<span class="token punctuation">)</span>	<span class="token comment"># 调用刚刚写好的函数方法</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"code"</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"返回PayPal支付url"</span><span class="token punctuation">,</span> <span class="token string">"paypal_url"</span><span class="token punctuation">:</span> parpal_url<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr></table></figure><ul>
+<li>支付完成后，会跳回刚刚传过去的回调页面</li>
+<li>paypal 会传过来三个参数，支付 id,token 和支付者 id</li>
+<li>此时，在回调方法里，我们需要通过支付者 id 进行确认验证支付</li>
+</ul>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment"># 回调</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">class</span> <span class="token class-name">PayPal_back</span><span class="token punctuation">(</span>APIView<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">def</span> <span class="token function">post</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        uid <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        paymentid <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"paymentId"</span><span class="token punctuation">)</span>  <span class="token comment"># 订单 id</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        payerid <span class="token operator">=</span> request<span class="token punctuation">.</span>data<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"PayerID"</span><span class="token punctuation">)</span>  <span class="token comment"># 支付者 id</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        payment <span class="token operator">=</span> paypalrestsdk<span class="token punctuation">.</span>Payment<span class="token punctuation">.</span>find<span class="token punctuation">(</span>paymentid<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">if</span> payment<span class="token punctuation">.</span>execute<span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token string">"payer_id"</span><span class="token punctuation">:</span> payerid<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="11"></td><td><pre>            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Payment execute successfully"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token string">"支付成功"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">else</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">print</span><span class="token punctuation">(</span>payment<span class="token punctuation">.</span>error<span class="token punctuation">)</span>  <span class="token comment"># Error Hash</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token string">"支付失败"</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="vue"><a class="markdownIt-Anchor" href="#vue">#</a> vue</h2>
+<ol>
+<li>支付页面</li>
+</ol>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>    </pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-input</span> <span class="token attr-name">placeholder</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>输入充值金额(美元)<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>number<span class="token punctuation">'</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>money<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">width</span><span class="token punctuation">:</span>500px</span><span class="token punctuation">"</span></span></span> <span class="token punctuation">/></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a-button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>primary<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token property">margin-top</span><span class="token punctuation">:</span>20px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sub<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="8"></td><td><pre>            确定</pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a-button</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="14"></td><td><pre>'</pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    post_paypal_url<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@/http/apis'</span></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            money<span class="token operator">:</span><span class="token string">''</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            pay_method<span class="token operator">:</span><span class="token string">''</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>pay_method <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>pay_method</pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    methods<span class="token operator">:</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>        <span class="token function">sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="31"></td><td><pre>            <span class="token keyword">let</span> params <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>                <span class="token string">"uid"</span><span class="token operator">:</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="33"></td><td><pre>                <span class="token string">"total_money"</span><span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>money<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="34"></td><td><pre>                <span class="token string">"pay_method"</span><span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>pay_method<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="35"></td><td><pre>            <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="36"></td><td><pre>            <span class="token function">post_paypal_url</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token operator">=></span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="37"></td><td><pre>                <span class="token comment">// 获取支付链接并跳转</span></pre></td></tr><tr><td data-num="38"></td><td><pre>                window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> res<span class="token punctuation">.</span>paypal_url</pre></td></tr><tr><td data-num="39"></td><td><pre>            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="41"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="42"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="43"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><ol start="2">
+<li>回调页面</li>
+</ol>
+<figure class="highlight html"><figcaption data-lang="HTML"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>PayPal回调<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript"></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">import</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    post_paypal_back<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@/http/apis'</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token keyword">return</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            query<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token comment">// 支付完成后获取，PayPal 传来的参数，发送给后端</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token keyword">this</span><span class="token punctuation">.</span>query <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query</pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token keyword">let</span> params <span class="token operator">=</span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>            <span class="token string">"uid"</span><span class="token operator">:</span> localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'uid'</span><span class="token punctuation">)</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="22"></td><td><pre>            <span class="token string">'paymentId'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>query<span class="token punctuation">.</span>paymentId<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="23"></td><td><pre>            <span class="token string">'PayerID'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>query<span class="token punctuation">.</span>PayerID<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="24"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre>        <span class="token function">post_paypal_back</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="26"></td><td><pre>            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></pre></td></tr><tr><td data-num="29"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></pre></td></tr></table></figure><h2 id="演示"><a class="markdownIt-Anchor" href="#演示">#</a> 演示</h2>
+<p><img data-src="PayPal.gif" alt=""></p>
+
+      <div class="tags">
+          <a href="/tags/PayPal/" rel="tag"><i class="ic i-tag"></i> PayPal</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2021-01-06 19:52:36" itemprop="dateModified" datetime="2021-01-06T19:52:36+08:00">2021-01-06</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="YuTu ✨ WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="YuTu ✨ Alipay">
+        <p>Alipay</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>YuTu ✨ <i class="ic i-at"><em>@</em></i>The course of true love never did run smooth.
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="https://tuyustar.cn/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" title="PayPal-- 跨境支付">https://tuyustar.cn/Django框架/PayPal-跨境支付/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/WebSocket-%E5%85%A8%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1%E7%9A%84%E5%8D%8F%E8%AE%AE/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4fomxoj20zk0m8axp.jpg" title="WebSocket--全双工通信协议">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> 技术大杂烩</span>
+  <h3>WebSocket--全双工通信协议</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4lm9i7j20zk0m84qp.jpg" title="Wechat--扫码支付">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Django 框架</span>
+  <h3>Wechat--扫码支付</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#python3-django22-vue%E9%9B%86%E6%88%90paypal%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98"><span class="toc-number">2.</span> <span class="toc-text"> Python3 + Django2.2 + Vue 集成 PayPal 跨境支付</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#paypal"><span class="toc-number">2.1.</span> <span class="toc-text"> PayPal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#django"><span class="toc-number">2.2.</span> <span class="toc-text"> Django</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue"><span class="toc-number">2.3.</span> <span class="toc-text"> vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA"><span class="toc-number">2.4.</span> <span class="toc-text"> 演示</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E4%B8%89%E7%A7%8D%E9%A3%8E%E6%A0%BC%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%BB%A7%E6%89%BF/" rel="bookmark" title="三种风格的模型继承">三种风格的模型继承</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8/" rel="bookmark" title="序列化器">序列化器</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E6%95%B0%E6%8D%AE%E5%BA%93ORM%E6%93%8D%E4%BD%9C/" rel="bookmark" title="Django--数据库ORM操作">Django--数据库ORM操作</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-JWT%E4%BD%BF%E7%94%A8/" rel="bookmark" title="Django--JWT使用">Django--JWT使用</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-Celery%E5%BC%82%E6%AD%A5%E6%A1%86%E6%9E%B6/" rel="bookmark" title="Celery异步框架">Celery异步框架</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/Django-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" rel="bookmark" title="Django + Uwsgi + Nginx 的生产环境部署">Django + Uwsgi + Nginx 的生产环境部署</a></li><li class="active"><a href="/Django%E6%A1%86%E6%9E%B6/PayPal-%E8%B7%A8%E5%A2%83%E6%94%AF%E4%BB%98/" rel="bookmark" title="PayPal--跨境支付">PayPal--跨境支付</a></li><li><a href="/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" rel="bookmark" title="Wechat--扫码支付">Wechat--扫码支付</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="YuTu ✨"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">YuTu ✨</p>
+  <div class="description" itemprop="description">不知道写啥</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">3</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">17</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0RhbmllbENTQw==" title="https:&#x2F;&#x2F;github.com&#x2F;DanielCSC"><i class="ic i-github"></i></span>
+      <span class="exturl item twitter" data-url="aHR0cHM6Ly90d2l0dGVyLmNvbS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;twitter.com&#x2F;yourname"><i class="ic i-twitter"></i></span>
+      <span class="exturl item zhihu" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS9mYW4teGluZy1pLTYx" title="https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;fan-xing-i-61"><i class="ic i-zhihu"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTQ5MjAzNjIyOA==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;492036228"><i class="ic i-cloud-music"></i></span>
+      <span class="exturl item weibo" data-url="aHR0cHM6Ly93ZWliby5jb20veW91cm5hbWU=" title="https:&#x2F;&#x2F;weibo.com&#x2F;yourname"><i class="ic i-weibo"></i></span>
+      <span class="exturl item about" data-url="aHR0cHM6Ly9hYm91dC5tZS95b3VybmFtZQ==" title="https:&#x2F;&#x2F;about.me&#x2F;yourname"><i class="ic i-address-card"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>Archives</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>Tags</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/%E6%8A%80%E6%9C%AF%E5%A4%A7%E6%9D%82%E7%83%A9/WebSocket-%E5%85%A8%E5%8F%8C%E5%B7%A5%E9%80%9A%E4%BF%A1%E7%9A%84%E5%8D%8F%E8%AE%AE/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/Django%E6%A1%86%E6%9E%B6/wechat-%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2021</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">YuTu ✨ @ Yutu's Cabin</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="Symbols count total">66k words</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="Reading time total">1:01</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: 'Django框架/PayPal-跨境支付/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
